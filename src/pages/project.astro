@@ -1,0 +1,28 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import ScrollReveal from "../components/ScrollReveal.tsx";
+---
+
+<Layout
+  title="Our Research | Mentor AI"
+  description="Discover our research on using AI-mediated feedback to enhance human feedback provision."
+  canonicalPath="/project"
+>
+  <Header />
+  <main id="main-content" role="main" class="bg-background flex-1">
+    <section
+      class="mx-auto max-w-none px-6 pt-12 pb-24 md:px-8 md:pt-20 md:pb-40 lg:max-w-6xl"
+    >
+      <ScrollReveal client:idle>
+        <h1
+          class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
+        >
+          Our Research
+        </h1>
+      </ScrollReveal>
+    </section>
+  </main>
+  <Footer />
+</Layout>

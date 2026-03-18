@@ -1,0 +1,261 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import TeamMemberCard from "~/components/TeamMemberCard.astro";
+import ScrollReveal from "../components/ScrollReveal.tsx";
+import GitHubIcon from "~/assets/icons/github.svg";
+import GoogleScholarIcon from "~/assets/icons/googlescholar.svg";
+import LinkedInIcon from "~/assets/icons/linkedin.svg";
+import MailIcon from "~/assets/icons/mail.svg";
+import XIcon from "~/assets/icons/x.svg";
+import xuImage from "~/assets/images/xwanghci.png";
+import sanoImage from "~/assets/images/llubomud.jpg";
+import dudleyImage from "~/assets/images/mrdudley.jpg";
+import xinyiImage from "~/assets/images/lwlxy.jpg";
+import kexinImage from "~/assets/images/kexinju.jpg";
+import maheshImage from "~/assets/images/mahesh.jpg";
+import zejiaImage from "~/assets/images/zejia.jpg";
+
+const faculty = [
+  {
+    name: "Xu Wang",
+    role: "Assistant Professor",
+    affiliation: "Computer Science and Engineering",
+    organization: "University of Michigan",
+    image: xuImage.src,
+    socials: [
+      {
+        href: "mailto:xwanghci@umich.edu",
+        label: "Email",
+        icon: MailIcon,
+      },
+      {
+        href: "https://scholar.google.com/citations?user=Fa0scckAAAAJ",
+        label: "Google Scholar",
+        icon: GoogleScholarIcon,
+      },
+    ],
+  },
+  {
+    name: "Mitchell Dudley",
+    role: "Teaching Professor of Economics",
+    affiliation: "College of Literature, Science, and the Arts",
+    organization: "University of Michigan",
+    image: dudleyImage.src,
+    socials: [
+      {
+        href: "mailto:mrdudley@umich.edu",
+        label: "Email",
+        icon: MailIcon,
+      },
+      {
+        href: "https://www.linkedin.com/in/mitchell-dudley-b45aa721",
+        label: "LinkedIn",
+        icon: LinkedInIcon,
+      },
+    ],
+  },
+  {
+    name: "Larrisa Sano",
+    role: "Lecturer IV in Sweetland Writing Center",
+    affiliation: "College of Literature, Science, and the Arts",
+    organization: "University of Michigan",
+    image: sanoImage.src,
+    socials: [
+      {
+        href: "mailto:llubomud@umich.edu",
+        label: "Email",
+        icon: MailIcon,
+      },
+      {
+        href: "https://www.linkedin.com/in/larissa-sano-13831835/",
+        label: "LinkedIn",
+        icon: LinkedInIcon,
+      },
+    ],
+  },
+];
+
+const researchers = [
+  {
+    name: "Xinyi Lu",
+    role: "PhD Student",
+    affiliation: "Computer Science and Engineering",
+    organization: "University of Michigan",
+    image: xinyiImage.src,
+    socials: [
+      {
+        href: "mailto:lwlxy@umich.edu",
+        label: "Email",
+        icon: MailIcon,
+      },
+      {
+        href: "https://twitter.com/XinyiLu135",
+        label: "X (formerly Twitter)",
+        icon: XIcon,
+      },
+      {
+        href: "https://scholar.google.com/citations?user=IjzL7fcAAAAJ",
+        label: "Google Scholar",
+        icon: GoogleScholarIcon,
+      },
+      {
+        href: "https://www.linkedin.com/in/xinyi-lu-43043b1a8/",
+        label: "LinkedIn",
+        icon: LinkedInIcon,
+      },
+    ],
+  },
+  {
+    name: 'Kexin "Phyllis" Ju',
+    role: "Master Student",
+    affiliation: "Computer Science and Engineering",
+    organization: "University of Michigan",
+    image: kexinImage.src,
+    socials: [
+      {
+        href: "mailto:kexinju@umich.edu",
+        label: "Email",
+        icon: MailIcon,
+      },
+      {
+        href: "https://x.com/Phylliiiis",
+        label: "X (formerly Twitter)",
+        icon: XIcon,
+      },
+      {
+        href: "https://scholar.google.com/citations?hl=en&user=k96A9lEAAAAJ",
+        label: "Google Scholar",
+        icon: GoogleScholarIcon,
+      },
+      {
+        href: "https://www.linkedin.com/in/phyllisju",
+        label: "LinkedIn",
+        icon: LinkedInIcon,
+      },
+      {
+        href: "https://github.com/PhyllisJu",
+        label: "GitHub",
+        icon: GitHubIcon,
+      },
+    ],
+  },
+  {
+    name: "Aditya Mahesh",
+    role: "Undergraduate Research Assistant",
+    affiliation: "Computer Science and Engineering",
+    organization: "University of Michigan",
+    image: maheshImage.src,
+    socials: [
+      {
+        href: "https://www.linkedin.com/in/adimahesh/",
+        label: "LinkedIn",
+        icon: LinkedInIcon,
+      },
+      {
+        href: "https://github.com/am-2003",
+        label: "GitHub",
+        icon: GitHubIcon,
+      },
+    ],
+  },
+  {
+    name: "Zejia Shen",
+    role: "Undergraduate Research Assistant",
+    affiliation: "Computer Science and Engineering",
+    organization: "University of Michigan",
+    image: zejiaImage.src,
+    socials: [
+      {
+        href: "https://scholar.google.com/citations?user=JnG2w9UAAAAJ&hl=en",
+        label: "Google Scholar",
+        icon: GoogleScholarIcon,
+      },
+      {
+        href: "https://www.linkedin.com/in/zejia-shen/",
+        label: "LinkedIn",
+        icon: LinkedInIcon,
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Our Team | Mentor AI"
+  description="Learn more about the people behind Mentor AI."
+  canonicalPath="/team"
+>
+  <Header />
+  <main id="main-content" role="main" class="bg-background flex-1">
+    <section
+      class="mx-auto max-w-none px-6 pt-12 pb-24 md:px-8 md:pt-20 md:pb-40 lg:max-w-6xl"
+    >
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <ScrollReveal client:idle>
+          <h1
+            class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
+          >
+            Our Team
+          </h1>
+        </ScrollReveal>
+        <ScrollReveal client:load delay={0.1}>
+          <p class="mt-6 text-lg/8">
+            Meet our interdisciplinary research team working on scalable
+            AI-assisted feedback ecosystems for higher education, empowering
+            instructors to scale personalized support and improve student
+            learning outcomes on open-ended assignments.
+          </p>
+        </ScrollReveal>
+      </div>
+      <ScrollReveal client:load delay={0.2}>
+        <div class="mx-auto mt-12 max-w-2xl lg:mx-0">
+          <h2
+            class="text-umich-blue text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
+          >
+            Faculty
+          </h2>
+        </div>
+      </ScrollReveal>
+      <ScrollReveal client:load delay={0.3}>
+        <ul
+          role="list"
+          class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+        >
+          {
+            faculty.map((member) => (
+              <li>
+                <TeamMemberCard {...member} />
+              </li>
+            ))
+          }
+        </ul>
+      </ScrollReveal>
+      <ScrollReveal client:load delay={0.4}>
+        <div class="mx-auto mt-12 max-w-2xl lg:mx-0">
+          <h2
+            class="text-umich-blue text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
+          >
+            Research Team
+          </h2>
+        </div>
+      </ScrollReveal>
+      <ScrollReveal client:load delay={0.5}>
+        <ul
+          role="list"
+          class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+        >
+          {
+            researchers.map((member) => (
+              <li>
+                <TeamMemberCard {...member} />
+              </li>
+            ))
+          }
+        </ul>
+      </ScrollReveal>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,21 @@
+---
+import type { SvgComponent } from "astro/types";
+
+interface Props {
+  href: string;
+  label: string;
+  icon: SvgComponent;
+}
+
+const { href, label, icon: Icon } = Astro.props;
+---
+
+<a href={href} class="hover:text-umich-blue text-gray-700 transition-colors">
+  <span class="sr-only">{label}</span>
+  <Icon
+    width="20"
+    height="20"
+    aria-hidden="true"
+    class="size-5 transition-transform hover:scale-110"
+  />
+</a>

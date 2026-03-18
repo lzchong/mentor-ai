@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+@theme {
+    --color-umich-blue: #00274C;
+    --color-umich-maize: #FFCB05;
+    --color-background: #EDECEC;
+}
+
+.nav-link:not(:has(.nav-link-text)),
+.nav-link .nav-link-text {
+  position: relative;
+  line-height: 1;
+}
+
+.nav-link:not(:has(.nav-link-text))::after,
+.nav-link .nav-link-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--default-transition-duration) ease;
+}
+
+.nav-link:hover:not(:has(.nav-link-text))::after,
+.nav-link:hover .nav-link-text::after {
+  transform: scaleX(1);
+}

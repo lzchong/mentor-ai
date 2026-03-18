@@ -1,0 +1,89 @@
+---
+import MailIcon from "~/assets/icons/mail.svg";
+import PhoneIcon from "~/assets/icons/phone.svg";
+---
+
+<footer
+  class="bg-umich-blue w-full border-t border-gray-200 px-4 py-8 text-sm text-white"
+  role="contentinfo"
+>
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-8 grid gap-8 md:grid-cols-3">
+      <div>
+        <h2 class="mb-4 flex items-center text-lg font-semibold text-white">
+          <a
+            href="/"
+            class="item-centers flex text-2xl font-bold text-white transition-colors"
+            aria-label="Mentor AI - Home"
+          >
+            <img
+              src="/favicon.svg"
+              alt="Mentor AI Logo"
+              class="mr-2 inline h-8 w-8"
+            />
+            Mentor AI
+          </a>
+        </h2>
+        <p class="text-white">
+          Using AI-generated feedback as suggestions to expedite and enhance
+          human instructors’ feedback provision.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-umich-maize mb-4 text-lg font-semibold">Links</h2>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/team"
+              class="hover:text-umich-maize nav-link text-white transition-colors"
+            >
+              Our Team
+            </a>
+          </li>
+          <li>
+            <a
+              href="/project"
+              class="hover:text-umich-maize nav-link text-white transition-colors"
+            >
+              <span>Research</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/news"
+              class="hover:text-umich-maize nav-link text-white transition-colors"
+            >
+              News
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-umich-maize mb-4 text-lg font-semibold">Connect</h2>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/contact"
+              class="hover:text-umich-maize nav-link flex items-center gap-2 text-white transition-colors"
+            >
+              <MailIcon width="20" height="20" aria-hidden="true" />
+              <span class="nav-link-text">Email</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contact"
+              class="hover:text-umich-maize nav-link flex items-center gap-2 text-white transition-colors"
+            >
+              <PhoneIcon width="20" height="20" aria-hidden="true" />
+              <span class="nav-link-text">Phone</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-200 pt-4 text-center text-white">
+      <p>&copy; {new Date().getFullYear()} SCH-umich. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

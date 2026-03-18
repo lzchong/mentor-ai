@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import type { SvgComponent } from "astro/types";
+import SocialLink from "~/components/SocialLink.astro";
+
+interface SocialItem {
+  href: string;
+  label: string;
+  icon: SvgComponent;
+}
+
+interface Props {
+  name: string;
+  role: string;
+  affiliation: string;
+  organization: string;
+  image: string;
+  imageAlt?: string;
+  socials?: SocialItem[];
+}
+
+const {
+  name,
+  role,
+  affiliation,
+  organization,
+  image,
+  imageAlt = "",
+  socials = [],
+} = Astro.props;
+---
+
+<img
+  src={image}
+  alt={imageAlt}
+  class="aspect-5/4 w-full rounded-2xl object-cover shadow-md"
+/>
+<h3 class="text-umich-blue mt-6 text-lg/8 font-semibold tracking-tight">
+  {name}
+</h3>
+<p class="text-base/7 font-medium text-black">{role}</p>
+<p class="text-base/7 text-gray-700">{affiliation}</p>
+<p class="text-base/7 text-gray-700">{organization}</p>
+{
+  socials.length > 0 && (
+    <ul role="list" class="mt-3 flex gap-4">
+      {socials.map(({ href, label, icon }) => (
+        <li>
+          <SocialLink href={href} label={label} icon={icon} />
+        </li>
+      ))}
+    </ul>
+  )
+}

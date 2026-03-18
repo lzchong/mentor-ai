@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import ScrollReveal from "~/components/ScrollReveal.tsx";
+import screenshotImage from "~/assets/images/screenshot.png";
+---
+
+<section
+  class="mx-auto max-w-none px-6 pt-12 pb-24 md:px-8 md:pt-20 md:pb-40 lg:max-w-6xl"
+  aria-labelledby="hero-heading"
+>
+  <div class="mx-auto max-w-4xl text-center">
+    <ScrollReveal client:load>
+      <h1
+        class="text-umich-blue text-5xl font-semibold tracking-tight text-balance md:text-7xl"
+      >
+        Scaling Up High-Quality Feedback for Student Writing
+      </h1>
+    </ScrollReveal>
+    <ScrollReveal client:load delay={0.1}>
+      <p class="mt-8 text-lg font-medium text-pretty text-gray-600 sm:text-xl">
+        A research-backed AI platform that helps instructors, teaching
+        assistants, and students deliver meaningful feedback on open-ended
+        assignments without increasing workload.
+      </p>
+    </ScrollReveal>
+  </div>
+  <ScrollReveal client:load delay={0.2}>
+    <Image
+      src={screenshotImage}
+      alt="App screenshot"
+      width="2432"
+      height="1442"
+      class="mt-8 rounded-md bg-gray-50 shadow-xl ring-1 ring-gray-900/10 sm:mt-16"
+    />
+  </ScrollReveal>
+</section>
