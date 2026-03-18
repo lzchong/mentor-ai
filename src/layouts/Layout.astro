@@ -8,7 +8,7 @@ interface Props {
   noindex?: boolean;
 }
 
-const { title, description, canonicalPath = "", noindex = false } = Astro.props;
+const { title, description, canonicalPath = "", noindex = true } = Astro.props;
 
 const siteUrl = Astro.site?.href || "";
 const canonicalUrl = `${siteUrl.replace(/\/$/, "")}${canonicalPath}`;
