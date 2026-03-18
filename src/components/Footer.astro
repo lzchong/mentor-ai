@@ -1,6 +1,8 @@
 ---
 import MailIcon from "~/assets/icons/mail.svg";
 import PhoneIcon from "~/assets/icons/phone.svg";
+
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <footer
@@ -12,12 +14,12 @@ import PhoneIcon from "~/assets/icons/phone.svg";
       <div>
         <h2 class="mb-4 flex items-center text-lg font-semibold text-white">
           <a
-            href="/"
+            href={`${BASE_URL}`}
             class="item-centers flex text-2xl font-bold text-white transition-colors"
             aria-label="Mentor AI - Home"
           >
             <img
-              src={`${import.meta.env.BASE_URL}favicon.svg`}
+              src={`${BASE_URL}favicon.svg`}
               alt="Mentor AI Logo"
               class="mr-2 inline h-8 w-8"
             />
@@ -25,8 +27,8 @@ import PhoneIcon from "~/assets/icons/phone.svg";
           </a>
         </h2>
         <p class="text-white">
-          Using AI-generated feedback as suggestions to expedite and enhance
-          human instructors’ feedback provision.
+          Using research-backed AI-mediated feedback as suggestions to expedite
+          and enhance human instructors’ feedback provision.
         </p>
       </div>
       <div>
@@ -34,7 +36,7 @@ import PhoneIcon from "~/assets/icons/phone.svg";
         <ul class="space-y-2">
           <li>
             <a
-              href="/team"
+              href={`${BASE_URL}team`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
             >
               Our Team
@@ -42,7 +44,7 @@ import PhoneIcon from "~/assets/icons/phone.svg";
           </li>
           <li>
             <a
-              href="/project"
+              href={`${BASE_URL}project`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
             >
               <span>Research</span>
@@ -50,7 +52,7 @@ import PhoneIcon from "~/assets/icons/phone.svg";
           </li>
           <li>
             <a
-              href="/news"
+              href={`${BASE_URL}news`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
             >
               News
@@ -63,20 +65,20 @@ import PhoneIcon from "~/assets/icons/phone.svg";
         <ul class="space-y-2">
           <li>
             <a
-              href="/contact"
+              href="mailto:xwanghci@umich.edu"
               class="hover:text-umich-maize nav-link flex items-center gap-2 text-white transition-colors"
             >
               <MailIcon width="20" height="20" aria-hidden="true" />
-              <span class="nav-link-text">Email</span>
+              <span class="nav-link-text">xwanghci@umich.edu</span>
             </a>
           </li>
           <li>
             <a
-              href="/contact"
+              href="tel:+1734-763-2285"
               class="hover:text-umich-maize nav-link flex items-center gap-2 text-white transition-colors"
             >
               <PhoneIcon width="20" height="20" aria-hidden="true" />
-              <span class="nav-link-text">Phone</span>
+              <span class="nav-link-text">+1 (734) 763-2285</span>
             </a>
           </li>
         </ul>
