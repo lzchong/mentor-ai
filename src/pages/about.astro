@@ -173,6 +173,8 @@ const researchers = [
     ],
   },
 ];
+
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <Layout
@@ -185,7 +187,46 @@ const researchers = [
     <section
       class="mx-auto max-w-none px-6 pt-12 pb-24 md:px-8 md:pt-20 md:pb-40 lg:max-w-6xl"
     >
-      <div class="mx-auto max-w-2xl lg:mx-0">
+      <div class="mx-auto max-w-2xl py-24 text-center sm:py-32 lg:py-48">
+        <ScrollReveal client:idle>
+          <h1
+            class="text-umich-blue text-5xl leading-none font-semibold tracking-tight text-balance sm:text-7xl"
+          >
+            We’re changing how feedback works in education
+          </h1>
+        </ScrollReveal>
+        <ScrollReveal client:load delay={0.1}>
+          <p
+            class="mt-8 text-lg font-medium text-pretty text-gray-700 sm:text-xl sm:leading-8"
+          >
+            We envision a future where every student receives meaningful,
+            high-quality feedback on their writing, tailored to their individual
+            needs while remaining aligned with course rubrics and expectations,
+            without increasing the burden on instructors.
+          </p>
+        </ScrollReveal>
+      </div>
+      <div class="mx-auto mt-20 max-w-2xl lg:mx-0">
+        <ScrollReveal client:idle>
+          <h2
+            class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
+          >
+            Our Mission
+          </h2>
+        </ScrollReveal>
+        <ScrollReveal client:load delay={0.1}>
+          <p class="mt-6 text-lg/8">
+            Providing detailed, personalized feedback is challenging in large
+            writing-intensive courses. In a randomized controlled trial with 354
+            undergraduate students, AI-mediated feedback led to significantly
+            higher-quality revisions. Our mission is to translate these research
+            findings into practical tools that help instructors and TAs deliver
+            consistent, high-quality feedback, while enabling every student to
+            receive personalized guidance aligned with course rubrics.
+          </p>
+        </ScrollReveal>
+      </div>
+      <div class="mx-auto mt-20 max-w-2xl lg:mx-0">
         <ScrollReveal client:idle>
           <h1
             class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
@@ -204,11 +245,11 @@ const researchers = [
       </div>
       <ScrollReveal client:load delay={0.2}>
         <div class="mx-auto mt-12 max-w-2xl lg:mx-0">
-          <h2
+          <h3
             class="text-umich-blue text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
           >
             Faculty
-          </h2>
+          </h3>
         </div>
       </ScrollReveal>
       <ScrollReveal client:load delay={0.3}>
@@ -227,11 +268,11 @@ const researchers = [
       </ScrollReveal>
       <ScrollReveal client:load delay={0.4}>
         <div class="mx-auto mt-12 max-w-2xl lg:mx-0">
-          <h2
+          <h3
             class="text-umich-blue text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
           >
             Research Team
-          </h2>
+          </h3>
         </div>
       </ScrollReveal>
       <ScrollReveal client:load delay={0.5}>
@@ -248,6 +289,27 @@ const researchers = [
           }
         </ul>
       </ScrollReveal>
+      <div class="mx-auto mt-20 max-w-2xl lg:mx-0">
+        <ScrollReveal client:load delay={0.6}>
+          <h2
+            class="text-umich-blue text-3xl font-semibold tracking-tight text-balance sm:text-5xl"
+          >
+            Join the Mentor AI Team!
+          </h2>
+        </ScrollReveal>
+        <ScrollReveal client:load delay={0.7}>
+          <p class="my-6">
+            Want to contribute to our mission? Sign up to become part of our
+            research team.
+          </p>
+          <a
+            href={`${BASE_URL}signup`}
+            class="bg-umich-blue hover:ring-umich-blue focus-visible:ring-umich-blue hover:text-umich-blue focus-visible:text-umich-blue rounded-md px-3 py-2 leading-none text-white transition hover:bg-white hover:ring-2 focus:outline-none focus-visible:bg-white focus-visible:ring-2"
+          >
+            Join us!
+          </a>
+        </ScrollReveal>
+      </div>
     </section>
   </main>
   <Footer />
