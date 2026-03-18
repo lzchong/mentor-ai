@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 import type { SvgComponent } from "astro/types";
 import SocialLink from "~/components/SocialLink.astro";
@@ -28,10 +29,17 @@ const {
   imageAlt = "",
   socials = [],
 } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png,gif}",
+);
+if (!images[`/src/assets/images/${image}`])
+  throw new Error(
+    `"${image}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`,
+  );
 ---
 
-<img
-  src={image}
+<Image
+  src={images[`/src/assets/images/${image}`]()}
   alt={imageAlt}
   class="aspect-5/4 w-full rounded-2xl object-cover shadow-md"
 />
