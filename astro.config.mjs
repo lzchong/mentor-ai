@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://lzchong.github.io",
-  base: "/",
+  base: "/mentor-ai/",
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
