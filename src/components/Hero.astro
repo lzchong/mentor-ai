@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import ScrollReveal from "~/components/ScrollReveal.tsx";
+import ScrollReveal from "~/components/ScrollReveal.astro";
 import screenshotImage from "~/assets/images/screenshot.png";
 ---
 
@@ -9,14 +9,14 @@ import screenshotImage from "~/assets/images/screenshot.png";
   aria-labelledby="hero-heading"
 >
   <div class="mx-auto max-w-4xl text-center">
-    <ScrollReveal client:load>
+    <ScrollReveal>
       <h1
         class="text-umich-blue text-5xl font-semibold tracking-tight text-balance md:text-7xl"
       >
         Scaling Up High-Quality Feedback for Student Writing
       </h1>
     </ScrollReveal>
-    <ScrollReveal client:load delay={0.1}>
+    <ScrollReveal delay={0.1}>
       <p class="mt-8 text-lg font-medium text-pretty text-gray-700 sm:text-xl">
         A research-backed AI platform that helps instructors, teaching
         assistants, and students deliver meaningful feedback on open-ended
@@ -24,7 +24,7 @@ import screenshotImage from "~/assets/images/screenshot.png";
       </p>
     </ScrollReveal>
   </div>
-  <ScrollReveal client:load delay={0.2}>
+  <ScrollReveal delay={0.2}>
     <Image
       src={screenshotImage}
       alt="App screenshot"

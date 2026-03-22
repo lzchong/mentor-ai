@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-    --color-umich-blue: #00274C;
-    --color-umich-maize: #FFCB05;
-    --color-background: #EDECEC;
+  --color-umich-blue: #00274c;
+  --color-umich-maize: #ffcb05;
+  --color-background: #edecec;
 }
 
 .nav-link:not(:has(.nav-link-text)),

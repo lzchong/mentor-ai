@@ -1,0 +1,50 @@
+---
+export type ScrollRevealDirection = "up" | "down" | "left" | "right";
+
+interface Props {
+  delay?: number;
+  direction?: ScrollRevealDirection;
+}
+
+const { delay = 0, direction = "up" } = Astro.props;
+
+const distance = 50;
+const offsets: Record<ScrollRevealDirection, { x: number; y: number }> = {
+  up: { x: 0, y: distance },
+  down: { x: 0, y: -distance },
+  left: { x: distance, y: 0 },
+  right: { x: -distance, y: 0 },
+};
+const { x, y } = offsets[direction];
+---
+
+<div data-scroll-reveal data-delay={delay} data-start-x={x} data-start-y={y}>
+  <slot />
+</div>
+
+<script>
+  import { animate, inView } from "motion";
+
+  inView("[data-scroll-reveal]", (element) => {
+    if (!(element instanceof HTMLElement)) return;
+
+    const startX = Number(element.dataset.startX) || 0;
+    const startY = Number(element.dataset.startY) || 0;
+
+    animate(
+      element,
+      {
+        opacity: [0, 1],
+        x: [startX, 0],
+        y: [startY, 0],
+      },
+      {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        mass: 1,
+        delay: Number(element.dataset.delay) || 0,
+      },
+    );
+  });
+</script>

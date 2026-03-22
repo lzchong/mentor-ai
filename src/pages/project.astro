@@ -2,7 +2,7 @@
 import Layout from "~/layouts/Layout.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/Header.astro";
-import ScrollReveal from "../components/ScrollReveal.tsx";
+import ScrollReveal from "../components/ScrollReveal.astro";
 ---
 
 <Layout
@@ -15,7 +15,7 @@ import ScrollReveal from "../components/ScrollReveal.tsx";
     <section
       class="mx-auto max-w-none px-6 pt-12 pb-24 md:px-8 md:pt-20 md:pb-40 lg:max-w-6xl"
     >
-      <ScrollReveal client:idle>
+      <ScrollReveal>
         <h1
           class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
         >
