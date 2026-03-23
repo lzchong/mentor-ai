@@ -3,7 +3,8 @@ import MailIcon from "~/assets/icons/mail.svg";
 import PhoneIcon from "~/assets/icons/phone.svg";
 
 const BASE_URL = import.meta.env.BASE_URL;
-const isActive = (href: string) => Astro.url.pathname === href;
+const getAriaCurrent = (href: string) =>
+  href === Astro.url.pathname ? "page" : undefined;
 ---
 
 <footer
@@ -17,6 +18,7 @@ const isActive = (href: string) => Astro.url.pathname === href;
           href={BASE_URL}
           class="item-centers mb-4 inline-flex text-center text-2xl font-bold text-white"
           aria-label="Mentor AI - Home"
+          aria-current={getAriaCurrent(BASE_URL)}
         >
           <img
             src={`${BASE_URL}favicon.svg`}
@@ -38,7 +40,7 @@ const isActive = (href: string) => Astro.url.pathname === href;
             <a
               href={`${BASE_URL}about/`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
-              aria-current={isActive(`${BASE_URL}about/`) ? "page" : undefined}
+              aria-current={getAriaCurrent(`${BASE_URL}about/`)}
             >
               About
             </a>
@@ -47,7 +49,7 @@ const isActive = (href: string) => Astro.url.pathname === href;
             <a
               href={`${BASE_URL}project/`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
-              aria-current={isActive(`${BASE_URL}project/`) ? "page" : undefined}
+              aria-current={getAriaCurrent(`${BASE_URL}project/`)}
             >
               Research
             </a>
@@ -56,7 +58,7 @@ const isActive = (href: string) => Astro.url.pathname === href;
             <a
               href={`${BASE_URL}news/`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
-              aria-current={isActive(`${BASE_URL}news/`) ? "page" : undefined}
+              aria-current={getAriaCurrent(`${BASE_URL}news/`)}
             >
               News
             </a>
