@@ -3,8 +3,7 @@ import MenuIcon from "~/assets/icons/menu.svg";
 import NavLink from "~/components/NavLink.astro";
 
 const BASE_URL = import.meta.env.BASE_URL;
-const isActive = (path: string) =>
-  Astro.url.pathname === `${BASE_URL}${path.slice(1)}`;
+const isActive = (href: string) => Astro.url.pathname === href;
 ---
 
 <header
@@ -32,9 +31,9 @@ const isActive = (path: string) =>
     <!-- Mobile menu button -->
     <div class="flex items-center gap-3 md:hidden">
       <a
-        href={`${BASE_URL}signup`}
+        href={`${BASE_URL}signup/`}
         class="bg-umich-maize text-umich-blue hover:bg-umich-blue hover:ring-umich-maize focus-visible:bg-umich-blue focus-visible:ring-umich-maize rounded-md px-3 py-2 leading-none transition hover:text-white hover:ring-2 focus:outline-none focus-visible:text-white focus-visible:ring-2 md:hidden"
-        aria-current={isActive("/signup") ? "page" : undefined}
+        aria-current={isActive(`${BASE_URL}signup/`) ? "page" : undefined}
       >
         Join Us!
       </a>
@@ -53,37 +52,21 @@ const isActive = (path: string) =>
     <!-- Desktop navigation -->
     <ul class="hidden items-center gap-6 md:flex" role="list">
       <li>
-        <NavLink
-          href={`${BASE_URL}about`}
-          active={isActive("/about")}
-          variant="desktop"
-        >
-          About
-        </NavLink>
+        <NavLink href={`${BASE_URL}about/`} variant="desktop">About</NavLink>
       </li>
       <li>
-        <NavLink
-          href={`${BASE_URL}project`}
-          active={isActive("/project")}
-          variant="desktop"
-        >
+        <NavLink href={`${BASE_URL}project/`} variant="desktop">
           Research
         </NavLink>
       </li>
       <li>
-        <NavLink
-          href={`${BASE_URL}news`}
-          active={isActive("/news")}
-          variant="desktop"
-        >
-          News
-        </NavLink>
+        <NavLink href={`${BASE_URL}news/`} variant="desktop">News</NavLink>
       </li>
       <li>
         <a
-          href={`${BASE_URL}signup`}
+          href={`${BASE_URL}signup/`}
           class="bg-umich-maize text-umich-blue hover:bg-umich-blue hover:ring-umich-maize focus-visible:ring-umich-maize focus-visible:bg-umich-blue rounded-md px-3 py-2 leading-none transition hover:text-white hover:ring-2 focus:outline-none focus-visible:text-white focus-visible:ring-2"
-          aria-current={isActive("/signup") ? "page" : undefined}
+          aria-current={isActive(`${BASE_URL}signup/`) ? "page" : undefined}
         >
           Join Us!
         </a>
@@ -100,31 +83,15 @@ const isActive = (path: string) =>
   >
     <ul class="flex flex-col pt-4" role="list">
       <li>
-        <NavLink
-          href={`${BASE_URL}about`}
-          active={isActive("/about")}
-          variant="mobile"
-        >
-          About
-        </NavLink>
+        <NavLink href={`${BASE_URL}about/`} variant="mobile">About</NavLink>
       </li>
       <li>
-        <NavLink
-          href={`${BASE_URL}project`}
-          active={isActive("/project")}
-          variant="mobile"
-        >
+        <NavLink href={`${BASE_URL}project/`} variant="mobile">
           Research
         </NavLink>
       </li>
       <li>
-        <NavLink
-          href={`${BASE_URL}news`}
-          active={isActive("/news")}
-          variant="mobile"
-        >
-          News
-        </NavLink>
+        <NavLink href={`${BASE_URL}new/`} variant="mobile">News</NavLink>
       </li>
     </ul>
   </div>

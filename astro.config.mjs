@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://lzchong.github.io",
   base: "/mentor-ai/",
+  trailingSlash: "always",
   vite: {
     plugins: [tailwindcss()],
   },

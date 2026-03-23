@@ -3,23 +3,23 @@ export type NavLinkVariant = "desktop" | "mobile";
 
 interface Props {
   href: string;
-  active: boolean;
   variant: NavLinkVariant;
 }
 
-const { href, active, variant } = Astro.props;
+const { href, variant } = Astro.props;
 
 const isMobile = variant === "mobile";
 const className = isMobile
   ? "hover:bg-umich-maize hover:text-umich-blue block px-4 py-3 text-white transition-colors"
   : "rounded-md px-3 py-2 text-white transition-colors focus:outline-none focus-visible:bg-white/15 hover:bg-white/15";
+const isActive = Astro.url.pathname === href;
 ---
 
 <a
   href={href}
   class={className}
   role={isMobile ? "menuitem" : undefined}
-  aria-current={active ? "page" : undefined}
+  aria-current={isActive ? "page" : undefined}
 >
   <slot />
 </a>
