@@ -3,6 +3,7 @@ import MailIcon from "~/assets/icons/mail.svg";
 import PhoneIcon from "~/assets/icons/phone.svg";
 
 const BASE_URL = import.meta.env.BASE_URL;
+const isActive = (href: string) => Astro.url.pathname === href;
 ---
 
 <footer
@@ -12,20 +13,19 @@ const BASE_URL = import.meta.env.BASE_URL;
   <div class="mx-auto max-w-6xl">
     <div class="mb-8 grid gap-8 md:grid-cols-3">
       <div>
-        <h2 class="mb-4 flex items-center text-lg font-semibold text-white">
-          <a
-            href={BASE_URL}
-            class="item-centers flex text-2xl font-bold text-white transition-colors"
-            aria-label="Mentor AI - Home"
-          >
-            <img
-              src={`${BASE_URL}favicon.svg`}
-              alt="Mentor AI Logo"
-              class="mr-2 inline h-8 w-8"
-            />
-            Mentor AI
-          </a>
-        </h2>
+        <a
+          href={BASE_URL}
+          class="item-centers mb-4 inline-flex text-center text-2xl font-bold text-white"
+          aria-label="Mentor AI - Home"
+        >
+          <img
+            src={`${BASE_URL}favicon.svg`}
+            alt=""
+            class="mr-2 inline h-8 w-8"
+            aria-hidden="true"
+          />
+          Mentor AI
+        </a>
         <p class="text-white">
           Using research-backed AI-mediated feedback as suggestions to expedite
           and enhance human instructors’ feedback provision.
@@ -38,6 +38,7 @@ const BASE_URL = import.meta.env.BASE_URL;
             <a
               href={`${BASE_URL}about/`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
+              aria-current={isActive(`${BASE_URL}about/`) ? "page" : undefined}
             >
               About
             </a>
@@ -46,14 +47,16 @@ const BASE_URL = import.meta.env.BASE_URL;
             <a
               href={`${BASE_URL}project/`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
+              aria-current={isActive(`${BASE_URL}project/`) ? "page" : undefined}
             >
-              <span>Research</span>
+              Research
             </a>
           </li>
           <li>
             <a
               href={`${BASE_URL}news/`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
+              aria-current={isActive(`${BASE_URL}news/`) ? "page" : undefined}
             >
               News
             </a>
