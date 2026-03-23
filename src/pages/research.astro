@@ -1,0 +1,316 @@
+---
+import { Image } from "astro:assets";
+import Layout from "~/layouts/Layout.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import ScrollReveal from "~/components/ScrollReveal.astro";
+import pipelineImage from "~/assets/images/research/pipeline.png";
+
+const BASE_URL = import.meta.env.BASE_URL;
+
+const chiPaper = {
+  title:
+    "AI-Mediated Feedback Improves Student Revisions: A Randomized Trial with FeedbackWriter in a Large Undergraduate Course",
+  venue: "CHI ’26 (ACM Conference on Human Factors in Computing Systems)",
+  year: "2026",
+  html: "https://arxiv.org/html/2602.16820v2",
+  pdf: "https://arxiv.org/pdf/2602.16820v2.pdf",
+  bullets: [
+    "Randomized controlled trial in a large introductory economics course (N = 354): students received either TA-authored feedback only or AI-mediated feedback where TAs could adopt, edit, or dismiss FeedbackWriter suggestions on knowledge-intensive essays.",
+    "Students in the AI-mediated condition produced significantly higher-quality revised drafts (Cohen’s d = 0.50), described in the paper as roughly equivalent to moving from the 50th to the 70th percentile. Effects were larger when TAs adopted more AI suggestions.",
+    "Course post-test scores did not differ significantly between conditions. Automated analysis of feedback text found AI-mediated feedback scored higher on actionability and support for independent learning.",
+  ],
+};
+
+const aiedPaper = {
+  title:
+    "Exploring LLM-Generated Feedback for Economics Essays: How Teaching Assistants Evaluate and Envision Its Use",
+  venue:
+    "AIED 2025 (International Conference on Artificial Intelligence in Education)",
+  year: "2025",
+  html: "https://arxiv.org/html/2505.15596v1",
+  pdf: "https://arxiv.org/pdf/2505.15596v1.pdf",
+  bullets: [
+    "Study with teaching assistants on LLM-generated feedback for rubric-guided, knowledge-intensive economics essays.",
+    "TAs considered AI suggestions workable when paired with detailed rubrics; they valued decomposed steps and visible intermediate outputs (e.g. in-text highlights) to spot and correct model errors.",
+    "Themes include expediting grading, improving consistency, and balancing rubric alignment with holistic judgment.",
+  ],
+};
+---
+
+<Layout
+  title="Research | Mentor AI"
+  description="Empirical studies of AI-mediated feedback in real undergraduate courses, including a randomized trial with FeedbackWriter (N = 354)."
+>
+  <Header />
+  <main id="main-content" role="main" class="bg-background flex-1">
+    <section
+      class="mx-auto max-w-none px-6 pt-12 pb-16 md:px-8 md:pt-16 md:pb-24 lg:max-w-6xl"
+      aria-labelledby="research-hero-heading"
+    >
+      <ScrollReveal>
+        <h1
+          id="research-hero-heading"
+          class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
+        >
+          Research in real classrooms
+        </h1>
+      </ScrollReveal>
+      <ScrollReveal delay={0.05}>
+        <p class="mt-6 max-w-3xl text-lg text-pretty text-gray-700 sm:text-xl">
+          Our work is grounded in studies of AI-mediated feedback deployed with
+          instructors and teaching assistants, not hypothetical tasks. Below we
+          summarize peer-reviewed and archival publications; figures link to the
+          same papers.
+        </p>
+      </ScrollReveal>
+    </section>
+
+    <section
+      class="mx-auto max-w-none border-t border-gray-200/80 bg-white/40 px-6 py-16 md:px-8 lg:max-w-6xl"
+      aria-labelledby="findings-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="findings-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Key findings at a glance
+        </h2>
+      </ScrollReveal>
+      <ul class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3" role="list">
+        <li>
+          <ScrollReveal delay={0.05}>
+            <article
+              class="border-umich-blue/15 h-full rounded-lg border bg-white p-6 shadow-sm"
+            >
+              <h3 class="text-umich-blue text-lg font-semibold">
+                Revision quality (RCT)
+              </h3>
+              <p class="mt-3 text-pretty text-gray-700">
+                In the CHI ’26 study, AI-mediated feedback through
+                FeedbackWriter was associated with <strong
+                  >significantly higher-quality revisions</strong
+                > versus human-only TA feedback (Cohen’s d = 0.50; about the 50th
+                to 70th percentile shift as reported in the paper).
+              </p>
+            </article>
+          </ScrollReveal>
+        </li>
+        <li>
+          <ScrollReveal delay={0.1}>
+            <article
+              class="border-umich-blue/15 h-full rounded-lg border bg-white p-6 shadow-sm"
+            >
+              <h3 class="text-umich-blue text-lg font-semibold">
+                Scale and context
+              </h3>
+              <p class="mt-3 text-pretty text-gray-700">
+                The trial ran in a <strong
+                  >large undergraduate course (N = 354)</strong
+                > with multiple TAs. Over the study,
+                <strong>1,366 essays</strong> were graded using the deployed system:
+                open-ended, knowledge-intensive writing with course rubrics.
+              </p>
+            </article>
+          </ScrollReveal>
+        </li>
+        <li class="sm:col-span-2 lg:col-span-1">
+          <ScrollReveal delay={0.15}>
+            <article
+              class="border-umich-blue/15 h-full rounded-lg border bg-white p-6 shadow-sm"
+            >
+              <h3 class="text-umich-blue text-lg font-semibold">
+                TA workflows and rubrics
+              </h3>
+              <p class="mt-3 text-pretty text-gray-700">
+                The AIED 2025 paper examines how <strong>TAs evaluate</strong>
+                LLM-generated feedback when <strong>rubrics are explicit</strong
+                >, and how <strong>human-AI collaboration</strong> (suggestions plus
+                human correction) fits their grading practice.
+              </p>
+            </article>
+          </ScrollReveal>
+        </li>
+      </ul>
+    </section>
+
+    <section
+      class="mx-auto max-w-none px-6 py-16 md:px-8 lg:max-w-6xl"
+      aria-labelledby="featured-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="featured-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Featured publication
+        </h2>
+      </ScrollReveal>
+      <ScrollReveal delay={0.05}>
+        <article
+          class="border-umich-blue/20 mt-10 overflow-hidden rounded-lg border bg-white shadow-sm"
+        >
+          <div class="grid gap-0 lg:grid-cols-2">
+            <div class="p-8">
+              <p class="text-sm font-medium text-gray-500">
+                {chiPaper.venue} · {chiPaper.year}
+              </p>
+              <h3
+                class="text-umich-blue mt-2 text-xl font-semibold text-pretty"
+              >
+                {chiPaper.title}
+              </h3>
+              <ul
+                class="mt-6 list-disc space-y-3 pl-5 text-pretty text-gray-700"
+              >
+                {chiPaper.bullets.map((b) => <li>{b}</li>)}
+              </ul>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={chiPaper.html}
+                  class="bg-umich-blue ring-umich-blue hover:bg-umich-maize hover:text-umich-blue focus-visible:ring-umich-maize rounded-md px-4 py-2 text-sm font-medium text-white transition hover:ring-2 focus:outline-none focus-visible:ring-2"
+                >
+                  Read on arXiv (HTML)
+                </a>
+                <a
+                  href={chiPaper.pdf}
+                  class="text-umich-blue border-umich-blue hover:bg-umich-blue rounded-md border px-4 py-2 text-sm font-medium transition hover:text-white"
+                >
+                  PDF
+                </a>
+              </div>
+            </div>
+            <figure class="bg-gray-50 p-6 lg:p-8">
+              <Image
+                src={pipelineImage}
+                alt="Diagram of the FeedbackWriter pipeline: student essay, rubric-based AI suggestions, TA review, and feedback to the student."
+                width={1200}
+                height={675}
+                class="w-full rounded-md ring-1 ring-gray-900/10"
+              />
+              <figcaption class="mt-3 text-center text-xs text-gray-500">
+                Figure from the CHI ’26 paper (pipeline overview).
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+      </ScrollReveal>
+    </section>
+
+    <section
+      class="mx-auto max-w-none border-t border-gray-200/80 px-6 py-16 md:px-8 lg:max-w-6xl"
+      aria-labelledby="secondary-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="secondary-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Related publication
+        </h2>
+      </ScrollReveal>
+      <ScrollReveal delay={0.05}>
+        <article
+          class="border-umich-blue/15 mt-8 max-w-3xl rounded-lg border bg-white p-8 shadow-sm"
+        >
+          <p class="text-sm font-medium text-gray-500">
+            {aiedPaper.venue} · {aiedPaper.year}
+          </p>
+          <h3 class="text-umich-blue mt-2 text-lg font-semibold text-pretty">
+            {aiedPaper.title}
+          </h3>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-pretty text-gray-700">
+            {aiedPaper.bullets.map((b) => <li>{b}</li>)}
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href={aiedPaper.html}
+              class="text-umich-blue border-umich-blue hover:bg-umich-blue rounded-md border px-4 py-2 text-sm font-medium transition hover:text-white"
+            >
+              arXiv HTML
+            </a>
+            <a
+              href={aiedPaper.pdf}
+              class="text-umich-blue border-umich-blue hover:bg-umich-blue rounded-md border px-4 py-2 text-sm font-medium transition hover:text-white"
+            >
+              PDF
+            </a>
+          </div>
+        </article>
+      </ScrollReveal>
+    </section>
+
+    <section
+      class="mx-auto max-w-none border-t border-gray-200/80 bg-white/40 px-6 py-16 md:px-8 lg:max-w-6xl"
+      aria-labelledby="publist-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="publist-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Publication list
+        </h2>
+      </ScrollReveal>
+      <ScrollReveal delay={0.05}>
+        <div
+          class="mt-8 overflow-x-auto rounded-lg border border-gray-200 bg-white"
+        >
+          <table class="w-full min-w-lg text-left text-sm">
+            <thead class="bg-gray-50 text-gray-600">
+              <tr>
+                <th class="px-4 py-3 font-semibold" scope="col">Title</th>
+                <th class="px-4 py-3 font-semibold" scope="col">Venue</th>
+                <th class="px-4 py-3 font-semibold" scope="col">Year</th>
+                <th class="px-4 py-3 font-semibold" scope="col">Links</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 text-gray-700">
+              <tr>
+                <td class="px-4 py-3 text-pretty">{chiPaper.title}</td>
+                <td class="px-4 py-3">CHI ’26</td>
+                <td class="px-4 py-3">{chiPaper.year}</td>
+                <td class="px-4 py-3">
+                  <a
+                    href={chiPaper.html}
+                    class="text-umich-blue hover:underline">HTML</a
+                  >
+                  ·
+                  <a href={chiPaper.pdf} class="text-umich-blue hover:underline"
+                    >PDF</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 text-pretty">{aiedPaper.title}</td>
+                <td class="px-4 py-3">AIED</td>
+                <td class="px-4 py-3">{aiedPaper.year}</td>
+                <td class="px-4 py-3">
+                  <a
+                    href={aiedPaper.html}
+                    class="text-umich-blue hover:underline">HTML</a
+                  >
+                  ·
+                  <a
+                    href={aiedPaper.pdf}
+                    class="text-umich-blue hover:underline">PDF</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <p class="mt-8 text-gray-600">
+          For the full team, see <a
+            href={`${BASE_URL}about`}
+            class="text-umich-blue font-medium hover:underline">About</a
+          >.
+        </p>
+      </ScrollReveal>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -29,8 +29,8 @@ const getAriaCurrent = (href: string) =>
           Mentor AI
         </a>
         <p class="text-white">
-          Using research-backed AI-mediated feedback as suggestions to expedite
-          and enhance human instructors’ feedback provision.
+          Research on AI-mediated feedback and tools for instructors, teaching
+          assistants, and students. Developed at the University of Michigan.
         </p>
       </div>
       <div>
@@ -47,9 +47,18 @@ const getAriaCurrent = (href: string) =>
           </li>
           <li>
             <a
-              href={`${BASE_URL}project/`}
+              href={`${BASE_URL}solution/`}
               class="hover:text-umich-maize nav-link text-white transition-colors"
-              aria-current={getAriaCurrent(`${BASE_URL}project/`)}
+              aria-current={getAriaCurrent(`${BASE_URL}solution/`)}
+            >
+              Solution
+            </a>
+          </li>
+          <li>
+            <a
+              href={`${BASE_URL}research/`}
+              class="hover:text-umich-maize nav-link text-white transition-colors"
+              aria-current={getAriaCurrent(`${BASE_URL}research/`)}
             >
               Research
             </a>
@@ -61,6 +70,15 @@ const getAriaCurrent = (href: string) =>
               aria-current={getAriaCurrent(`${BASE_URL}news/`)}
             >
               News
+            </a>
+          </li>
+          <li>
+            <a
+              href={`${BASE_URL}signup/`}
+              class="hover:text-umich-maize nav-link text-white transition-colors"
+              aria-current={getAriaCurrent(`${BASE_URL}signup/`)}
+            >
+              Join us
             </a>
           </li>
         </ul>

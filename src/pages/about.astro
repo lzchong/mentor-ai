@@ -179,14 +179,14 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 <Layout
   title="About | Mentor AI"
-  description="Learn more about the people behind Mentor AI."
+  description="Vision, mission, impact, and team behind Mentor AI. University of Michigan research on AI-mediated feedback."
 >
   <Header />
   <main id="main-content" role="main" class="bg-background flex-1">
     <section
       class="mx-auto max-w-none px-6 pt-12 pb-24 md:px-8 md:pt-20 md:pb-40 lg:max-w-6xl"
     >
-      <div class="mx-auto max-w-2xl py-24 text-center sm:py-32 lg:py-48">
+      <div class="mx-auto max-w-3xl py-24 text-center sm:py-32 lg:py-48">
         <ScrollReveal>
           <h1
             class="text-umich-blue text-5xl leading-none font-semibold tracking-tight text-balance sm:text-7xl"
@@ -205,7 +205,7 @@ const BASE_URL = import.meta.env.BASE_URL;
           </p>
         </ScrollReveal>
       </div>
-      <div class="mx-auto mt-20 max-w-2xl lg:mx-0">
+      <div class="mx-auto mt-20 max-w-3xl lg:mx-0">
         <ScrollReveal delay={0.2}>
           <h2
             class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
@@ -217,15 +217,46 @@ const BASE_URL = import.meta.env.BASE_URL;
           <p class="mt-6 text-lg/8">
             Providing detailed, personalized feedback is challenging in large
             writing-intensive courses. In a randomized controlled trial with 354
-            undergraduate students, AI-mediated feedback led to significantly
-            higher-quality revisions. Our mission is to translate these research
+            undergraduate students, AI-mediated feedback through FeedbackWriter
+            led to significantly higher-quality revisions than human-only TA
+            feedback; course post-test scores did not differ significantly
+            between conditions in that study. Our mission is to translate these
             findings into practical tools that help instructors and TAs deliver
-            consistent, high-quality feedback, while enabling every student to
-            receive personalized guidance aligned with course rubrics.
+            consistent, rubric-aligned feedback, without claiming learning gains
+            beyond what the evidence supports.
           </p>
         </ScrollReveal>
       </div>
-      <div class="mx-auto mt-20 max-w-2xl lg:mx-0">
+      <div class="mx-auto mt-20 max-w-3xl lg:mx-0">
+        <ScrollReveal delay={0.35}>
+          <h2
+            class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
+          >
+            Our impact
+          </h2>
+        </ScrollReveal>
+        <ScrollReveal delay={0.38}>
+          <ul class="mt-6 list-disc space-y-3 pl-6 text-lg/8 text-pretty">
+            <li>
+              Deployed and studied FeedbackWriter in a large introductory
+              economics course with multiple trained TAs. Over
+              <strong>1,366 essays</strong> were graded using the system in the RCT
+              reported in our CHI ’26 paper.
+            </li>
+            <li>
+              Demonstrated measurable gains in <strong>revision quality</strong> when
+              TAs could adopt, edit, or dismiss AI suggestions, compared with human-only
+              feedback (see Research for effect sizes and caveats).
+            </li>
+            <li>
+              Qualitative work with TAs (AIED 2025) documents how
+              rubric-grounded, stepwise AI outputs can fit real grading
+              workflows when humans remain in the loop.
+            </li>
+          </ul>
+        </ScrollReveal>
+      </div>
+      <div class="mx-auto mt-20 max-w-3xl lg:mx-0">
         <ScrollReveal delay={0.4}>
           <h2
             class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
@@ -236,9 +267,9 @@ const BASE_URL = import.meta.env.BASE_URL;
         <ScrollReveal delay={0.5}>
           <p class="mt-6 text-lg/8">
             Meet our interdisciplinary research team working on scalable
-            AI-assisted feedback ecosystems for higher education, empowering
-            instructors to scale personalized support and improve student
-            learning outcomes on open-ended assignments.
+            AI-assisted feedback ecosystems for higher education, helping
+            instructors scale personalized support on open-ended assignments
+            while grounding product decisions in classroom evidence.
           </p>
         </ScrollReveal>
       </div>

@@ -3,12 +3,243 @@ import Layout from "~/layouts/Layout.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/Header.astro";
 import Hero from "~/components/Hero.astro";
+import ScrollReveal from "~/components/ScrollReveal.astro";
+
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Mentor AI" description="">
+<Layout
+  title="Mentor AI"
+  description="Research-backed AI-mediated feedback for open-ended writing: FeedbackWriter for instructors and TAs, DraftMentors for students, with human judgment and rubrics in the loop."
+>
   <Header />
   <main id="main-content" role="main" class="bg-background flex-1">
     <Hero />
+
+    <section
+      class="mx-auto max-w-none border-t border-gray-200/80 px-6 py-16 md:px-8 lg:max-w-6xl"
+      aria-labelledby="problem-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="problem-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Why feedback is hard to scale
+        </h2>
+      </ScrollReveal>
+      <div class="mt-8 max-w-3xl text-pretty text-gray-700">
+        <ScrollReveal delay={0.06}>
+          <p class="text-lg leading-relaxed">
+            Formative feedback supports learning in <strong
+              class="font-medium text-gray-900"
+            >open-ended writing</strong
+            >, but producing it well takes sustained attention from instructors
+            and teaching assistants, especially in large courses.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <p class="mt-4 text-lg leading-relaxed">
+            Automated comments can be fast but risky: they can misread
+            discipline-specific reasoning or drift from your rubric, and they
+            may not provide the kind of guidance students can use to revise.
+            What we need is not automation alone, but <strong
+              class="font-medium text-gray-900"
+            >human judgment</strong
+            > steering <strong class="font-medium text-gray-900"
+              >AI assistance</strong
+            >.
+          </p>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    <section
+      class="mx-auto max-w-none border-t border-gray-200/80 bg-white/50 px-6 py-16 md:px-8 lg:max-w-6xl"
+      aria-labelledby="solution-teaser-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="solution-teaser-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Our approach
+        </h2>
+      </ScrollReveal>
+      <ScrollReveal delay={0.06}>
+        <p class="mt-6 max-w-3xl text-lg text-pretty text-gray-700">
+          We build tools where AI drafts suggestions under your rubrics, and
+          teaching staff review, correct, and align those suggestions before
+          they become student-facing feedback. Students can also get structured
+          support through DraftMentors, consistent with how you define the task.
+        </p>
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <ul
+          class="mt-8 max-w-3xl list-disc space-y-3 pl-6 text-pretty text-gray-700"
+        >
+          <li>
+            <strong class="text-gray-900">Instructors</strong> define assignments
+            and rubrics.
+          </li>
+          <li>
+            <strong class="text-gray-900">TAs / graders</strong> use FeedbackWriter
+            to shape rubric-faithful feedback from AI suggestions.
+          </li>
+          <li>
+            <strong class="text-gray-900">Students</strong> revise with guidance,
+            including DraftMentors where available.
+          </li>
+        </ul>
+      </ScrollReveal>
+      <ScrollReveal delay={0.14}>
+        <a
+          href={`${BASE_URL}solution`}
+          class="text-umich-blue mt-8 inline-block text-sm font-semibold hover:underline"
+        >
+          Explore the full workflow →
+        </a>
+      </ScrollReveal>
+    </section>
+
+    <section
+      class="mx-auto max-w-none px-6 py-16 md:px-8 lg:max-w-6xl"
+      aria-labelledby="research-teaser-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="research-teaser-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Evidence from a real course
+        </h2>
+      </ScrollReveal>
+      <ScrollReveal delay={0.06}>
+        <p class="mt-6 max-w-3xl text-lg text-pretty text-gray-700">
+          In a randomized controlled trial in a large introductory economics
+          course (<strong class="font-medium text-gray-900">N = 354</strong>),
+          students who received AI-mediated feedback through FeedbackWriter
+          produced <strong class="font-medium text-gray-900"
+            >significantly higher-quality revisions</strong
+          > than those who received human-only TA feedback (Cohen’s d = 0.50 in the
+          paper (about the 50th to 70th percentile shift as reported there). Course
+          post-test scores <strong class="font-medium text-gray-900"
+            >did not differ significantly</strong
+          > between conditions; see the publication for full results and methods.
+        </p>
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <a
+          href={`${BASE_URL}research`}
+          class="text-umich-blue mt-6 inline-block text-sm font-semibold hover:underline"
+        >
+          Publications and findings →
+        </a>
+      </ScrollReveal>
+    </section>
+
+    <section
+      class="mx-auto max-w-none border-t border-gray-200/80 bg-white/50 px-6 py-16 md:px-8 lg:max-w-6xl"
+      aria-labelledby="impact-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="impact-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          What this can mean for your course
+        </h2>
+      </ScrollReveal>
+      <ul class="mt-8 grid max-w-4xl gap-6 sm:grid-cols-2" role="list">
+        <li>
+          <ScrollReveal delay={0.05}>
+            <p
+              class="rounded-lg border border-gray-200 bg-white p-6 text-pretty text-gray-700 shadow-sm"
+            >
+              <strong class="text-umich-blue block text-base font-semibold"
+                >Rubric alignment</strong
+              >
+              <span class="mt-2 block">
+                Suggestions are grounded in criteria you set, not a generic
+                writing coach.
+              </span>
+            </p>
+          </ScrollReveal>
+        </li>
+        <li>
+          <ScrollReveal delay={0.1}>
+            <p
+              class="rounded-lg border border-gray-200 bg-white p-6 text-pretty text-gray-700 shadow-sm"
+            >
+              <strong class="text-umich-blue block text-base font-semibold"
+                >TA capacity</strong
+              >
+              <span class="mt-2 block">
+                AI assistance can reduce repetitive drafting work, helping
+                graders focus on rubric-aligned judgment and correction.
+              </span>
+            </p>
+          </ScrollReveal>
+        </li>
+        <li>
+          <ScrollReveal delay={0.15}>
+            <p
+              class="rounded-lg border border-gray-200 bg-white p-6 text-pretty text-gray-700 shadow-sm"
+            >
+              <strong class="text-umich-blue block text-base font-semibold"
+                >Revision quality</strong
+              >
+              <span class="mt-2 block">
+                In our RCT, revised drafts improved more under AI-mediated
+                feedback than under human-only feedback (as measured in the
+                study).
+              </span>
+            </p>
+          </ScrollReveal>
+        </li>
+        <li>
+          <ScrollReveal delay={0.2}>
+            <p
+              class="rounded-lg border border-gray-200 bg-white p-6 text-pretty text-gray-700 shadow-sm"
+            >
+              <strong class="text-umich-blue block text-base font-semibold"
+                >Research grounding</strong
+              >
+              <span class="mt-2 block">
+                Claims on this site follow published methods and results. We do
+                not add metrics that are not in the papers.
+              </span>
+            </p>
+          </ScrollReveal>
+        </li>
+      </ul>
+    </section>
+
+    <section
+      class="mx-auto max-w-none px-6 py-16 md:px-8 md:pb-24 lg:max-w-6xl"
+      aria-labelledby="home-cta-heading"
+    >
+      <ScrollReveal>
+        <div
+          class="border-umich-blue/25 bg-umich-blue rounded-lg px-6 py-12 text-center text-white shadow-md md:px-12"
+        >
+          <h2 id="home-cta-heading" class="text-2xl font-semibold sm:text-3xl">
+            Join us in improving feedback in education
+          </h2>
+          <p class="mx-auto mt-4 max-w-xl text-pretty text-white/90">
+            Instructors, departments, and collaborators: tell us about your
+            course or research interests. We read every message we can respond
+            to.
+          </p>
+          <a
+            href={`${BASE_URL}signup`}
+            class="bg-umich-maize text-umich-blue focus-visible:ring-umich-maize mt-8 inline-block rounded-md px-8 py-3 text-sm font-semibold transition hover:bg-white focus:outline-none focus-visible:ring-2"
+          >
+            Join us
+          </a>
+        </div>
+      </ScrollReveal>
+    </section>
   </main>
   <Footer />
 </Layout>
