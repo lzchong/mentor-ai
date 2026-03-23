@@ -8,7 +8,7 @@ interface Props {
 
 const { delay = 0, direction = "up" } = Astro.props;
 
-const distance = 50;
+const distance = 16;
 const offsets: Record<ScrollRevealDirection, { x: number; y: number }> = {
   up: { x: 0, y: distance },
   down: { x: 0, y: -distance },
@@ -18,18 +18,35 @@ const offsets: Record<ScrollRevealDirection, { x: number; y: number }> = {
 const { x, y } = offsets[direction];
 ---
 
-<div data-scroll-reveal data-delay={delay} data-start-x={x} data-start-y={y}>
+<div
+  data-scroll-reveal
+  data-delay={delay}
+  data-start-x={x}
+  data-start-y={y}
+  style={`--sr-x:${x}px; --sr-y:${y}px;`}
+>
   <slot />
 </div>
 
 <script>
   import { animate, inView } from "motion";
 
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  );
+
   inView("[data-scroll-reveal]", (element) => {
     if (!(element instanceof HTMLElement)) return;
+    if (element.dataset.revealed === "true") return;
+
+    if (prefersReducedMotion.matches) {
+      element.dataset.revealed = "true";
+      return;
+    }
 
     const startX = Number(element.dataset.startX) || 0;
     const startY = Number(element.dataset.startY) || 0;
+    const delay = Number(element.dataset.delay) || 0;
 
     animate(
       element,
@@ -40,11 +57,34 @@ const { x, y } = offsets[direction];
       },
       {
         type: "spring",
-        stiffness: 100,
-        damping: 15,
+        stiffness: 70,
+        damping: 18,
         mass: 1,
-        delay: Number(element.dataset.delay) || 0,
+        delay,
       },
-    );
+    ).then(() => {
+      element.dataset.revealed = "true";
+    });
   });
 </script>
+
+<style>
+  [data-scroll-reveal] {
+    opacity: 0;
+    transform: translate3d(var(--sr-x, 0), var(--sr-y, 0), 0);
+    will-change: transform, opacity;
+  }
+
+  [data-scroll-reveal][data-revealed="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-scroll-reveal] {
+      opacity: 1;
+      transform: none;
+      will-change: auto;
+    }
+  }
+</style>
