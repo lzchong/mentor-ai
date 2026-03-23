@@ -10,14 +10,14 @@ const items = [
   {
     date: "2026",
     title: "CHI ’26 paper available on arXiv",
-    body: "AI-Mediated Feedback Improves Student Revisions: A Randomized Trial with FeedbackWriter in a Large Undergraduate Course. Full text on arXiv (HTML and PDF).",
-    href: `${BASE_URL}research`,
+    body: "AI-Mediated Feedback Improves Student Revisions: A Randomized Trial with FeedbackWriter in a Large Undergraduate Course. Full text on arXiv.",
+    href: `${BASE_URL}research/`,
     linkLabel: "Research page",
   },
   {
     date: "2025",
     title: "AIED 2025 publication",
-    body: "Exploring LLM-Generated Feedback for Economics Essays: How Teaching Assistants Evaluate and Envision Its Use, archived on arXiv with HTML and PDF versions.",
+    body: "Exploring LLM-Generated Feedback for Economics Essays: How Teaching Assistants Evaluate and Envision Its Use, archived on arXiv.",
     href: "https://arxiv.org/html/2505.15596v1",
     linkLabel: "arXiv HTML",
   },
@@ -25,7 +25,7 @@ const items = [
     date: "2025",
     title: "Mentor AI site",
     body: "This public site summarizes our research direction, tools, and how to get involved. Content is kept aligned with published work, with no inflated metrics.",
-    href: `${BASE_URL}about`,
+    href: `${BASE_URL}about/`,
     linkLabel: "About",
   },
 ];
@@ -55,7 +55,7 @@ const items = [
           speculative milestones or community statistics here.
         </p>
       </ScrollReveal>
-      <ul class="mt-14 max-w-3xl space-y-12" role="list">
+      <ul class="mt-14 space-y-12" role="list">
         {
           items.map((item, i) => (
             <li>
