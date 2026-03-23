@@ -3,7 +3,7 @@ import Layout from "~/layouts/Layout.astro";
 import Footer from "~/components/Footer.astro";
 import Header from "~/components/Header.astro";
 import TeamMemberCard from "~/components/TeamMemberCard.astro";
-import ScrollReveal from "../components/ScrollReveal.astro";
+import ScrollReveal from "~/components/ScrollReveal.astro";
 import GitHubIcon from "~/assets/icons/github.svg";
 import GoogleScholarIcon from "~/assets/icons/googlescholar.svg";
 import LinkedInIcon from "~/assets/icons/linkedin.svg";
@@ -50,7 +50,7 @@ const faculty = [
     ],
   },
   {
-    name: "Larrisa Sano",
+    name: "Larissa Sano",
     role: "Lecturer IV in Sweetland Writing Center",
     affiliation: "College of Literature, Science, and the Arts",
     organization: "University of Michigan",
@@ -227,11 +227,11 @@ const BASE_URL = import.meta.env.BASE_URL;
       </div>
       <div class="mx-auto mt-20 max-w-2xl lg:mx-0">
         <ScrollReveal delay={0.4}>
-          <h1
+          <h2
             class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
           >
             Our Team
-          </h1>
+          </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.5}>
           <p class="mt-6 text-lg/8">
