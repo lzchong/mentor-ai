@@ -134,7 +134,6 @@ const aiedPaper = {
         </li>
       </ul>
     </section>
-
     <section
       class="mx-auto max-w-none px-6 py-16 md:px-8 lg:max-w-6xl"
       aria-labelledby="featured-heading"
@@ -151,48 +150,42 @@ const aiedPaper = {
         <article
           class="border-umich-blue/20 mt-10 overflow-hidden rounded-lg border bg-white shadow-sm"
         >
-          <div class="grid gap-0 lg:grid-cols-2">
-            <div class="p-8">
-              <p class="text-sm font-medium text-gray-500">
-                {chiPaper.venue} · {chiPaper.year}
-              </p>
-              <h3
-                class="text-umich-blue mt-2 text-xl font-semibold text-pretty"
-              >
-                {chiPaper.title}
-              </h3>
-              <ul
-                class="mt-6 list-disc space-y-3 pl-5 text-pretty text-gray-700"
-              >
-                {chiPaper.bullets.map((b) => <li>{b}</li>)}
-              </ul>
-              <div class="mt-8 flex flex-wrap gap-3">
-                <a
-                  href={chiPaper.html}
-                  class="bg-umich-blue ring-umich-blue hover:bg-umich-maize hover:text-umich-blue focus-visible:ring-umich-maize rounded-md px-4 py-2 text-sm font-medium text-white transition hover:ring-2 focus:outline-none focus-visible:ring-2"
-                >
-                  Read on arXiv (HTML)
-                </a>
-                <a
-                  href={chiPaper.pdf}
-                  class="text-umich-blue border-umich-blue hover:bg-umich-blue rounded-md border px-4 py-2 text-sm font-medium transition hover:text-white"
-                >
-                  PDF
-                </a>
-              </div>
-            </div>
-            <figure class="bg-gray-50 p-6 lg:p-8">
+          <div class="p-8">
+            <p class="text-sm font-medium text-gray-500">
+              {chiPaper.venue} · {chiPaper.year}
+            </p>
+            <h3 class="text-umich-blue mt-2 text-xl font-semibold text-pretty">
+              {chiPaper.title}
+            </h3>
+            <ul class="mt-6 list-disc space-y-3 pl-5 text-pretty text-gray-700">
+              {chiPaper.bullets.map((b) => <li>{b}</li>)}
+            </ul>
+            <figure class="mt-8">
               <Image
                 src={pipelineImage}
                 alt="Diagram of the FeedbackWriter pipeline: student essay, rubric-based AI suggestions, TA review, and feedback to the student."
-                width={1200}
-                height={675}
-                class="w-full rounded-md ring-1 ring-gray-900/10"
+                width={3122}
+                height={618}
+                class="w-full"
               />
-              <figcaption class="mt-3 text-center text-xs text-gray-500">
+              <figcaption class="mt-2 text-center text-xs text-gray-500">
                 Figure from the CHI ’26 paper (pipeline overview).
               </figcaption>
             </figure>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                href={chiPaper.html}
+                class="bg-umich-blue ring-umich-blue hover:bg-umich-maize hover:text-umich-blue focus-visible:ring-umich-maize rounded-md px-4 py-2 text-sm font-medium text-white transition hover:ring-2 focus:outline-none focus-visible:ring-2"
+              >
+                Read on arXiv (HTML)
+              </a>
+              <a
+                href={chiPaper.pdf}
+                class="text-umich-blue border-umich-blue hover:bg-umich-blue rounded-md border px-4 py-2 text-sm font-medium transition hover:text-white"
+              >
+                PDF
+              </a>
+            </div>
           </div>
         </article>
       </ScrollReveal>
