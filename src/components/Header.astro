@@ -1,7 +1,10 @@
 ---
 import MenuIcon from "~/assets/icons/menu.svg";
+import NavLink from "~/components/NavLink.astro";
 
 const BASE_URL = import.meta.env.BASE_URL;
+const isActive = (path: string) =>
+  Astro.url.pathname === `${BASE_URL}${path.slice(1)}`;
 ---
 
 <header
@@ -48,31 +51,31 @@ const BASE_URL = import.meta.env.BASE_URL;
     <!-- Desktop navigation -->
     <ul class="hidden items-center gap-6 md:flex" role="list">
       <li>
-        <a
+        <NavLink
           href={`${BASE_URL}about`}
-          class="rounded-md px-3 py-2 text-white transition-colors hover:bg-white/15 focus:outline-none focus-visible:bg-white/15"
-          aria-current={Astro.url.pathname === "/about" ? "page" : undefined}
+          active={isActive("/about")}
+          variant="desktop"
         >
           About
-        </a>
+        </NavLink>
       </li>
       <li>
-        <a
+        <NavLink
           href={`${BASE_URL}project`}
-          class="rounded-md px-3 py-2 text-white transition-colors hover:bg-white/15 focus:outline-none focus-visible:bg-white/15"
-          aria-current={Astro.url.pathname === "/project" ? "page" : undefined}
+          active={isActive("/project")}
+          variant="desktop"
         >
           Research
-        </a>
+        </NavLink>
       </li>
       <li>
-        <a
+        <NavLink
           href={`${BASE_URL}news`}
-          class="rounded-md px-3 py-2 text-white transition-colors hover:bg-white/15 focus:outline-none focus-visible:bg-white/15"
-          aria-current={Astro.url.pathname === "/news" ? "page" : undefined}
+          active={isActive("/news")}
+          variant="desktop"
         >
           News
-        </a>
+        </NavLink>
       </li>
       <li>
         <a
@@ -94,34 +97,31 @@ const BASE_URL = import.meta.env.BASE_URL;
   >
     <ul class="flex flex-col pt-4" role="list">
       <li>
-        <a
+        <NavLink
           href={`${BASE_URL}about`}
-          class="hover:text-umich-blue hover:bg-umich-maize block px-4 py-3 text-white transition-colors"
-          role="menuitem"
-          aria-current={Astro.url.pathname === "/about" ? "page" : undefined}
+          active={isActive("/about")}
+          variant="mobile"
         >
           About
-        </a>
+        </NavLink>
       </li>
       <li>
-        <a
+        <NavLink
           href={`${BASE_URL}project`}
-          class="hover:bg-umich-maize hover:text-umich-blue block px-4 py-3 text-white transition-colors"
-          role="menuitem"
-          aria-current={Astro.url.pathname === "/project" ? "page" : undefined}
+          active={isActive("/project")}
+          variant="mobile"
         >
           Research
-        </a>
+        </NavLink>
       </li>
       <li>
-        <a
+        <NavLink
           href={`${BASE_URL}news`}
-          class="hover:text-umich-blue hover:bg-umich-maize block px-4 py-3 text-white transition-colors"
-          role="menuitem"
-          aria-current={Astro.url.pathname === "/news" ? "page" : undefined}
+          active={isActive("/news")}
+          variant="mobile"
         >
           News
-        </a>
+        </NavLink>
       </li>
     </ul>
   </div>
