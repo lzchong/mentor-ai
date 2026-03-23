@@ -13,8 +13,7 @@ const chiPaper = {
     "AI-Mediated Feedback Improves Student Revisions: A Randomized Trial with FeedbackWriter in a Large Undergraduate Course",
   venue: "CHI ’26 (ACM Conference on Human Factors in Computing Systems)",
   year: "2026",
-  html: "https://arxiv.org/html/2602.16820v2",
-  pdf: "https://arxiv.org/pdf/2602.16820v2.pdf",
+  link: "https://arxiv.org/pdf/2602.16820v2",
   bullets: [
     "Randomized controlled trial in a large introductory economics course (N = 354): students received either TA-authored feedback only or AI-mediated feedback where TAs could adopt, edit, or dismiss FeedbackWriter suggestions on knowledge-intensive essays.",
     "Students in the AI-mediated condition produced significantly higher-quality revised drafts (Cohen’s d = 0.50), described in the paper as roughly equivalent to moving from the 50th to the 70th percentile. Effects were larger when TAs adopted more AI suggestions.",
@@ -28,8 +27,7 @@ const aiedPaper = {
   venue:
     "AIED 2025 (International Conference on Artificial Intelligence in Education)",
   year: "2025",
-  html: "https://arxiv.org/html/2505.15596v1",
-  pdf: "https://arxiv.org/pdf/2505.15596v1.pdf",
+  link: "https://arxiv.org/pdf/2505.15596v1",
   bullets: [
     "Study with teaching assistants on LLM-generated feedback for rubric-guided, knowledge-intensive economics essays.",
     "TAs considered AI suggestions workable when paired with detailed rubrics; they valued decomposed steps and visible intermediate outputs (e.g. in-text highlights) to spot and correct model errors.",
@@ -65,7 +63,6 @@ const aiedPaper = {
         </p>
       </ScrollReveal>
     </section>
-
     <section
       class="mx-auto max-w-none border-t border-gray-200/80 bg-white/40 px-6 py-16 md:px-8 lg:max-w-6xl"
       aria-labelledby="findings-heading"
@@ -174,16 +171,10 @@ const aiedPaper = {
             </figure>
             <div class="mt-8 flex flex-wrap gap-3">
               <a
-                href={chiPaper.html}
+                href={chiPaper.link}
                 class="bg-umich-blue ring-umich-blue hover:bg-umich-maize hover:text-umich-blue focus-visible:ring-umich-maize rounded-md px-4 py-2 text-sm font-medium text-white transition hover:ring-2 focus:outline-none focus-visible:ring-2"
               >
-                Read on arXiv (HTML)
-              </a>
-              <a
-                href={chiPaper.pdf}
-                class="text-umich-blue border-umich-blue hover:bg-umich-blue rounded-md border px-4 py-2 text-sm font-medium transition hover:text-white"
-              >
-                PDF
+                Read on arXiv
               </a>
             </div>
           </div>
@@ -218,22 +209,15 @@ const aiedPaper = {
           </ul>
           <div class="mt-6 flex flex-wrap gap-3">
             <a
-              href={aiedPaper.html}
+              href={aiedPaper.link}
               class="text-umich-blue border-umich-blue hover:bg-umich-blue rounded-md border px-4 py-2 text-sm font-medium transition hover:text-white"
             >
-              arXiv HTML
-            </a>
-            <a
-              href={aiedPaper.pdf}
-              class="text-umich-blue border-umich-blue hover:bg-umich-blue rounded-md border px-4 py-2 text-sm font-medium transition hover:text-white"
-            >
-              PDF
+              arXiv
             </a>
           </div>
         </article>
       </ScrollReveal>
     </section>
-
     <section
       class="mx-auto max-w-none border-t border-gray-200/80 bg-white/40 px-6 py-16 md:px-8 lg:max-w-6xl"
       aria-labelledby="publist-heading"
@@ -266,12 +250,8 @@ const aiedPaper = {
                 <td class="px-4 py-3">{chiPaper.year}</td>
                 <td class="px-4 py-3">
                   <a
-                    href={chiPaper.html}
-                    class="text-umich-blue hover:underline">HTML</a
-                  >
-                  ·
-                  <a href={chiPaper.pdf} class="text-umich-blue hover:underline"
-                    >PDF</a
+                    href={chiPaper.link}
+                    class="text-umich-blue hover:underline">arXiv</a
                   >
                 </td>
               </tr>
@@ -281,13 +261,8 @@ const aiedPaper = {
                 <td class="px-4 py-3">{aiedPaper.year}</td>
                 <td class="px-4 py-3">
                   <a
-                    href={aiedPaper.html}
-                    class="text-umich-blue hover:underline">HTML</a
-                  >
-                  ·
-                  <a
-                    href={aiedPaper.pdf}
-                    class="text-umich-blue hover:underline">PDF</a
+                    href={aiedPaper.link}
+                    class="text-umich-blue hover:underline">arXiv</a
                   >
                 </td>
               </tr>
