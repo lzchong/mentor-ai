@@ -4,8 +4,9 @@ import Footer from "~/components/Footer.astro";
 import Header from "~/components/Header.astro";
 import ScrollReveal from "~/components/ScrollReveal.astro";
 
-/** Replace with your Google Form URL when ready. */
-const JOIN_FORM_URL = "#join-form-placeholder";
+const JOIN_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfBiu26vT-uLbt3PHeUjQ_20ui6VYkxgPt1mT5VSVRiQ4g3ZA/viewform";
+const JOIN_FORM_EMBED_URL = `${JOIN_FORM_URL}?embedded=true`;
 ---
 
 <Layout
@@ -13,9 +14,13 @@ const JOIN_FORM_URL = "#join-form-placeholder";
   description="Partner with us on AI-mediated feedback in real courses. Instructors, departments, and researchers welcome."
 >
   <Header />
-  <main id="main-content" role="main" class="bg-background flex-1 pt-12 pb-24 md:pt-20 md:pb-40">
+  <main
+    id="main-content"
+    role="main"
+    class="bg-background flex-1 pt-12 pb-24 md:pt-20 md:pb-40"
+  >
     <section
-      class="mx-auto max-w-none px-6 md:px-8 lg:max-w-6xl"
+      class="mx-auto max-w-none px-16 pb-16 lg:max-w-6xl"
       aria-labelledby="join-hero-heading"
     >
       <div class="mx-auto max-w-3xl text-center">
@@ -36,9 +41,8 @@ const JOIN_FORM_URL = "#join-form-placeholder";
         </ScrollReveal>
       </div>
     </section>
-
     <section
-      class="mx-auto max-w-none border-t border-gray-200/80 px-6 py-16 md:px-8 lg:max-w-6xl"
+      class="mx-auto max-w-none border-t border-gray-200/80 p-16 lg:max-w-6xl"
       aria-labelledby="who-heading"
     >
       <div class="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
@@ -91,9 +95,8 @@ const JOIN_FORM_URL = "#join-form-placeholder";
         </div>
       </div>
     </section>
-
     <section
-      class="mx-auto max-w-none border-t border-gray-200/80 bg-white/50 px-6 py-16 md:px-8 lg:max-w-6xl"
+      class="mx-auto max-w-none border-t border-gray-200/80 bg-white/50 p-16 lg:max-w-6xl"
       aria-labelledby="form-heading"
     >
       <ScrollReveal>
@@ -104,35 +107,26 @@ const JOIN_FORM_URL = "#join-form-placeholder";
           Apply or express interest
         </h2>
       </ScrollReveal>
-      <ScrollReveal delay={0.06}>
-        <p class="mt-4 max-w-2xl text-pretty text-gray-700">
-          The form below is a placeholder until a Google Form URL is configured.
-          Fields we plan to collect: name, email, department, course, and
-          semester you might participate.
-        </p>
-      </ScrollReveal>
       <ScrollReveal delay={0.1}>
-        <div
-          id="join-form-placeholder"
-          class="border-umich-blue/15 mt-8 max-w-xl rounded-lg border border-dashed bg-white p-8 text-center"
-        >
-          <p class="text-sm font-medium text-gray-600">
-            Google Form link not yet configured.
-          </p>
-          <a
-            href={JOIN_FORM_URL}
-            aria-disabled="true"
-            class="bg-umich-blue/40 pointer-events-none mt-6 inline-block cursor-not-allowed rounded-md px-6 py-3 text-sm font-medium text-white"
+        <div class="mt-8">
+          <iframe
+            src={JOIN_FORM_EMBED_URL}
+            title="Mentor AI collaboration interest form"
+            class="h-[900px] w-full rounded-md"
+            loading="lazy"
           >
-            Apply now (coming soon)
-          </a>
-          <p class="mt-4 text-xs text-gray-500">
-            TODO: set <code
-              class="rounded bg-gray-100 px-1 py-0.5 text-gray-800"
-              >JOIN_FORM_URL</code
-            > in <code class="rounded bg-gray-100 px-1 py-0.5 text-gray-800"
-              >signup.astro</code
-            > to your live form.
+            Loading…
+          </iframe>
+          <p class="mt-4 text-sm text-gray-600">
+            If the form does not load, open it in a new tab:
+            <a
+              href={JOIN_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-umich-blue ml-1 font-medium underline underline-offset-2 hover:no-underline"
+            >
+              Open form
+            </a>
           </p>
         </div>
       </ScrollReveal>
@@ -155,7 +149,7 @@ const JOIN_FORM_URL = "#join-form-placeholder";
         </ol>
       </ScrollReveal>
       <ScrollReveal delay={0.18}>
-        <p class="mt-8 text-sm text-gray-600">
+        <p class="mt-8 text-sm text-gray-700">
           General questions? Contact us via email or phone.
         </p>
       </ScrollReveal>
