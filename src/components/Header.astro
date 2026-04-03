@@ -8,7 +8,7 @@ const getAriaCurrent = (href: string) =>
 ---
 
 <header
-  class="bg-umich-blue sticky top-0 z-50 w-full border-b px-4 py-4 shadow-sm"
+  class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-md"
   role="banner"
 >
   <nav
@@ -17,14 +17,14 @@ const getAriaCurrent = (href: string) =>
   >
     <a
       href={BASE_URL}
-      class="item-centers inline-flex text-center text-2xl font-bold text-white"
+      class="inline-flex items-center gap-2 text-xl font-bold text-umich-blue"
       aria-label="Mentor AI - Home"
       aria-current={getAriaCurrent(BASE_URL)}
     >
       <img
         src={`${BASE_URL}favicon.svg`}
         alt=""
-        class="mr-2 inline h-8 w-8"
+        class="h-7 w-7"
         aria-hidden="true"
       />
       Mentor AI
@@ -34,14 +34,14 @@ const getAriaCurrent = (href: string) =>
     <div class="flex items-center gap-3 md:hidden">
       <a
         href={`${BASE_URL}signup/`}
-        class="bg-umich-maize text-umich-blue hover:bg-umich-blue hover:ring-umich-maize focus-visible:bg-umich-blue focus-visible:ring-umich-maize rounded-md px-3 py-2 leading-none transition hover:text-white hover:ring-2 focus:outline-none focus-visible:text-white focus-visible:ring-2 md:hidden"
+        class="bg-umich-maize text-umich-blue rounded-lg px-3 py-2 text-sm font-semibold leading-none transition hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-umich-blue"
         aria-current={getAriaCurrent(`${BASE_URL}signup/`)}
       >
-        Join Us!
+        Join Us
       </a>
       <button
         type="button"
-        class="hover:text-umich-maize rounded-md p-1 text-white transition-colors md:hidden"
+        class="rounded-md p-1 text-gray-600 transition-colors hover:text-umich-blue md:hidden"
         aria-label="Toggle menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -52,14 +52,76 @@ const getAriaCurrent = (href: string) =>
     </div>
 
     <!-- Desktop navigation -->
-    <ul class="hidden items-center gap-6 md:flex" role="list">
+    <ul class="hidden items-center gap-1 md:flex" role="list">
       <li>
         <NavLink href={`${BASE_URL}about/`} variant="desktop">About</NavLink>
       </li>
-      <li>
-        <NavLink href={`${BASE_URL}solution/`} variant="desktop">
+      <!-- Solution dropdown -->
+      <li class="relative" id="solution-nav-item">
+        <button
+          type="button"
+          id="solution-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="solution-dropdown"
+          class="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-umich-blue/5 hover:text-umich-blue focus:outline-none focus-visible:bg-umich-blue/5"
+        >
           Solution
-        </NavLink>
+          <svg class="h-3.5 w-3.5 transition-transform duration-200" id="solution-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div
+          id="solution-dropdown"
+          role="menu"
+          aria-labelledby="solution-trigger"
+          class="invisible absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-xl border border-gray-100 bg-white opacity-0 shadow-lg transition-all duration-150"
+        >
+          <div class="p-1.5">
+            <a
+              href={`${BASE_URL}solution/feedbackwriter/`}
+              role="menuitem"
+              class="block rounded-lg px-4 py-3 transition hover:bg-gray-50"
+            >
+              <div class="flex items-center gap-2">
+                <p class="text-sm font-semibold text-umich-blue">FeedbackWriter</p>
+                <span class="rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">Available Now</span>
+              </div>
+              <p class="mt-0.5 text-xs text-gray-500">AI-assisted grading for TAs</p>
+            </a>
+            <div
+              href={`${BASE_URL}solution/draftmentors/`}
+              role="menuitem"
+              class="block rounded-lg px-4 py-3 transition hover:bg-gray-50"
+            >
+              <div class="flex items-center gap-2">
+                <p class="text-sm font-semibold text-gray-400">DraftMentors</p>
+                <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-400">Coming Soon</span>
+              </div>
+              <p class="mt-0.5 text-xs text-gray-400">Rubric-aligned support for students</p>
+            </div>
+            <div
+              href={`${BASE_URL}solution/instructor-dashboard/`}
+              role="menuitem"
+              class="block rounded-lg px-4 py-3 transition hover:bg-gray-50"
+            >
+              <div class="flex items-center gap-2">
+                <p class="text-sm font-semibold text-gray-400">Instructor Dashboard</p>
+                <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-400">Coming Soon</span>
+              </div>
+              <p class="mt-0.5 text-xs text-gray-400">Analytics and rubric management</p>
+            </div>
+            <div class="mt-1 border-t border-gray-100 pt-1">
+              <a
+                href={`${BASE_URL}solution/`}
+                role="menuitem"
+                class="block rounded-lg px-4 py-2.5 transition hover:bg-gray-50"
+              >
+                <p class="text-sm font-semibold text-umich-blue">See the full ecosystem →</p>
+              </a>
+            </div>
+          </div>
+        </div>
       </li>
       <li>
         <NavLink href={`${BASE_URL}research/`} variant="desktop">
@@ -69,13 +131,13 @@ const getAriaCurrent = (href: string) =>
       <li>
         <NavLink href={`${BASE_URL}news/`} variant="desktop">News</NavLink>
       </li>
-      <li>
+      <li class="ml-4">
         <a
           href={`${BASE_URL}signup/`}
-          class="bg-umich-maize text-umich-blue hover:bg-umich-blue hover:ring-umich-maize focus-visible:ring-umich-maize focus-visible:bg-umich-blue rounded-md px-3 py-2 leading-none transition hover:text-white hover:ring-2 focus:outline-none focus-visible:text-white focus-visible:ring-2"
+          class="bg-umich-maize text-umich-blue rounded-lg px-4 py-2 text-sm font-semibold leading-none transition hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-umich-blue"
           aria-current={getAriaCurrent(`${BASE_URL}signup/`)}
         >
-          Join Us!
+          Join Us
         </a>
       </li>
     </ul>
@@ -84,18 +146,53 @@ const getAriaCurrent = (href: string) =>
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="bg-umich-blue mt-4 hidden border-t border-gray-200 md:hidden"
+    class="mt-3 hidden border-t border-gray-100 bg-white md:hidden"
     role="menu"
     aria-labelledby="mobile-menu-button"
   >
-    <ul class="flex flex-col pt-4" role="list">
+    <ul class="flex flex-col py-2" role="list">
       <li>
         <NavLink href={`${BASE_URL}about/`} variant="mobile">About</NavLink>
       </li>
+      <!-- Solution mobile sub-menu -->
       <li>
-        <NavLink href={`${BASE_URL}solution/`} variant="mobile">
+        <button
+          type="button"
+          id="mobile-solution-trigger"
+          aria-expanded="false"
+          aria-controls="mobile-solution-menu"
+          class="flex w-full items-center justify-between px-4 py-3 text-gray-700 font-medium transition-colors hover:bg-umich-blue/5 hover:text-umich-blue"
+        >
           Solution
-        </NavLink>
+          <svg class="h-4 w-4 transition-transform duration-200" id="mobile-solution-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <ul id="mobile-solution-menu" class="hidden flex-col bg-gray-50" role="list">
+          <li>
+            <a href={`${BASE_URL}solution/feedbackwriter/`} class="flex items-center gap-2 px-8 py-2.5 text-sm text-gray-600 transition hover:text-umich-blue">
+              FeedbackWriter
+              <span class="rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">Available Now</span>
+            </a>
+          </li>
+          <li>
+            <a href={`${BASE_URL}solution/draftmentors/`} class="flex items-center gap-2 px-8 py-2.5 text-sm text-gray-400 transition">
+              DraftMentors
+              <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-400">Coming Soon</span>
+            </a>
+          </li>
+          <li>
+            <a href={`${BASE_URL}solution/instructor-dashboard/`} class="flex items-center gap-2 px-8 py-2.5 text-sm text-gray-400 transition">
+              Instructor Dashboard
+              <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-400">Coming Soon</span>
+            </a>
+          </li>
+          <li>
+            <a href={`${BASE_URL}solution/`} class="block px-8 py-2.5 text-xs text-gray-500 transition hover:text-umich-blue">
+              See the full ecosystem →
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
         <NavLink href={`${BASE_URL}research/`} variant="mobile">
@@ -103,14 +200,71 @@ const getAriaCurrent = (href: string) =>
         </NavLink>
       </li>
       <li>
-        <NavLink href={`${BASE_URL}new/`} variant="mobile">News</NavLink>
+        <NavLink href={`${BASE_URL}news/`} variant="mobile">News</NavLink>
       </li>
     </ul>
   </div>
 </header>
 
 <script>
-  // Mobile menu toggle functionality
+  // Desktop Solution dropdown
+  const solutionTrigger = document.getElementById("solution-trigger") as HTMLButtonElement | null;
+  const solutionDropdown = document.getElementById("solution-dropdown");
+  const solutionChevron = document.getElementById("solution-chevron");
+
+  function openDropdown() {
+    if (!solutionDropdown || !solutionTrigger || !solutionChevron) return;
+    solutionTrigger.setAttribute("aria-expanded", "true");
+    solutionDropdown.classList.remove("invisible", "opacity-0");
+    solutionChevron.style.transform = "rotate(180deg)";
+  }
+
+  function closeDropdown() {
+    if (!solutionDropdown || !solutionTrigger || !solutionChevron) return;
+    solutionTrigger.setAttribute("aria-expanded", "false");
+    solutionDropdown.classList.add("invisible", "opacity-0");
+    solutionChevron.style.transform = "";
+  }
+
+  const solutionNavItem = document.getElementById("solution-nav-item");
+  if (solutionNavItem) {
+    solutionNavItem.addEventListener("mouseenter", openDropdown);
+    solutionNavItem.addEventListener("mouseleave", closeDropdown);
+  }
+
+  if (solutionTrigger) {
+    solutionTrigger.addEventListener("click", () => {
+      const isOpen = solutionTrigger.getAttribute("aria-expanded") === "true";
+      isOpen ? closeDropdown() : openDropdown();
+    });
+    solutionTrigger.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") { closeDropdown(); solutionTrigger.focus(); }
+    });
+  }
+
+  document.addEventListener("click", (e) => {
+    if (solutionNavItem && !solutionNavItem.contains(e.target as Node)) {
+      closeDropdown();
+    }
+  });
+
+  // Mobile Solution sub-menu
+  const mobileSolutionTrigger = document.getElementById("mobile-solution-trigger") as HTMLButtonElement | null;
+  const mobileSolutionMenu = document.getElementById("mobile-solution-menu");
+  const mobileSolutionChevron = document.getElementById("mobile-solution-chevron");
+
+  if (mobileSolutionTrigger && mobileSolutionMenu) {
+    mobileSolutionTrigger.addEventListener("click", () => {
+      const isExpanded = mobileSolutionTrigger.getAttribute("aria-expanded") === "true";
+      mobileSolutionTrigger.setAttribute("aria-expanded", String(!isExpanded));
+      mobileSolutionMenu.classList.toggle("hidden");
+      mobileSolutionMenu.classList.toggle("flex");
+      if (mobileSolutionChevron) {
+        mobileSolutionChevron.style.transform = isExpanded ? "" : "rotate(180deg)";
+      }
+    });
+  }
+
   const menuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
 
@@ -121,7 +275,6 @@ const getAriaCurrent = (href: string) =>
       mobileMenu.classList.toggle("hidden");
     });
 
-    // Close menu when clicking outside
     document.addEventListener("click", (e) => {
       if (
         !menuButton.contains(e.target as Node) &&
@@ -133,7 +286,6 @@ const getAriaCurrent = (href: string) =>
       }
     });
 
-    // Close menu on escape key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
         menuButton.setAttribute("aria-expanded", "false");

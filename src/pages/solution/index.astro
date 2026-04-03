@@ -1,0 +1,395 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import ScrollReveal from "~/components/ScrollReveal.astro";
+import AccordionFAQ from "~/components/AccordionFAQ.astro";
+
+const BASE_URL = import.meta.env.BASE_URL;
+
+const faq = [
+  {
+    q: "Do students see raw AI output?",
+    a: "In FeedbackWriter, teaching assistants receive AI suggestions and decide what to adopt, edit, or dismiss before feedback reaches students. The final message reflects human judgment aligned with your rubric.",
+  },
+  {
+    q: "Who owns the rubric and assignment design?",
+    a: "Instructors define assignments and rubrics. That structure grounds both human grading and AI suggestions so feedback stays faithful to course goals.",
+  },
+  {
+    q: "What is DraftMentors?",
+    a: "DraftMentors provides structured student support on open-ended responses, aligned with instructor expectations. It complements the instructor-and-TA workflow rather than replacing it.",
+  },
+  {
+    q: "Is this only for economics?",
+    a: "Our published studies center on knowledge-intensive writing in an introductory economics course. We are now exploring how the same rubric-grounded, human-in-the-loop workflow can transfer to other disciplines with open-ended prompts.",
+  },
+  {
+    q: "What evidence supports the approach?",
+    a: "A randomized trial (N = 354) found significantly higher-quality revisions with AI-mediated feedback via FeedbackWriter versus human-only feedback; see our Research page for full citations and nuance (including post-test results).",
+  },
+  {
+    q: "How can my department get involved?",
+    a: "Use the Join page to tell us about your course or collaboration interest. We will follow up when we can.",
+  },
+];
+---
+
+<Layout
+  title="Solution | Mentor AI"
+  description="The Mentor AI ecosystem: Instructor Dashboard, FeedbackWriter, and DraftMentors — three connected tools forming a continuous feedback improvement loop."
+>
+  <Header />
+  <main
+    id="main-content"
+    role="main"
+    class="bg-background flex-1 pb-24 md:pb-40"
+  >
+    <!-- Ecosystem Hero -->
+    <div class="w-full bg-gradient-to-br from-umich-blue via-[#002d5e] to-[#001830]">
+      <section
+        class="mx-auto max-w-6xl px-8 pb-16 pt-14"
+        aria-labelledby="solution-hero-heading"
+      >
+        <ScrollReveal>
+          <div class="mx-auto max-w-2xl text-center">
+            <h1
+              id="solution-hero-heading"
+              class="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl"
+            >
+              The Mentor AI Ecosystem
+            </h1>
+            <p class="mt-4 text-lg text-white/75">
+              Expertise externalized and encoded through rubrics and AI-pipeline powers every tool. Three connected tools cover the full writing cycle, from writing to feedback provision to instructor insight.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <a
+                href={`${BASE_URL}research/`}
+                class="bg-umich-maize text-umich-blue rounded-lg px-5 py-2.5 text-sm font-semibold transition hover:brightness-95 focus:outline-none"
+              >
+                Read the research
+              </a>
+              <a
+                href={`${BASE_URL}signup/`}
+                class="rounded-lg border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none"
+              >
+                Join us
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <!-- Ecosystem diagram -->
+        <div class="mt-12 grid items-stretch gap-2 sm:grid-cols-[1fr_auto_1fr_auto_1fr]">
+          <ScrollReveal delay={0.08}>
+            <a
+              href={`${BASE_URL}solution/feedbackwriter/`}
+              class="group block h-full rounded-xl border-2 border-umich-maize/60 bg-white/10 p-5 backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:bg-white/15 hover:shadow-lg"
+            >
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-lg">📝</span>
+                <span class="bg-umich-maize text-umich-blue rounded-full px-2.5 py-0.5 text-xs font-bold">FeedbackWriter</span>
+                <span class="rounded-full bg-green-500/20 px-2 py-0.5 text-xs font-semibold text-green-300">Available Now</span>
+              </div>
+              <p class="mt-2 text-sm font-semibold text-white">For TAs &amp; Graders</p>
+              <p class="mt-2 text-xs font-semibold text-white/80"><span class="underline">AI-mediated feedback</span> modeling expert practice. TAs have full control to adopt, edit, or dismiss — nothing reaches students without review.</p>
+              <span class="mt-3 inline-block text-xs font-semibold text-umich-maize group-hover:underline">Learn more →</span>
+            </a>
+          </ScrollReveal>
+
+          <div class="hidden items-center justify-center sm:flex" aria-hidden="true">
+            <svg width="28" height="12" viewBox="0 0 28 12" fill="none">
+              <path d="M0 6H24M24 6L19 1M24 6L19 11" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <ScrollReveal delay={0.12}>
+            <div class="h-full rounded-xl border border-dashed border-white/30 bg-white/5 p-5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-lg">💬</span>
+                <span class="rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-bold text-white">DraftMentors</span>
+                <span class="rounded-full bg-white/10 px-2 py-0.5 text-xs font-semibold text-white/50">Coming Soon</span>
+              </div>
+              <p class="mt-2 text-sm font-semibold text-white/80">For Students</p>
+              <p class="mt-2 text-xs font-semibold text-white/60"><span class="underline">Expert-aligned AI tutoring</span> before and during writing. Students get instant rubric-grounded guidance and practice to prepare them for the assignment.</p>
+            </div>
+          </ScrollReveal>
+
+          <div class="hidden items-center justify-center sm:flex" aria-hidden="true">
+            <svg width="28" height="12" viewBox="0 0 28 12" fill="none">
+              <path d="M0 6H24M24 6L19 1M24 6L19 11" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <ScrollReveal delay={0.16}>
+            <div class="h-full rounded-xl border border-dashed border-white/30 bg-white/5 p-5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-lg">📊</span>
+                <span class="rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-bold text-white">Instructor Dashboard</span>
+                <span class="rounded-full bg-white/10 px-2 py-0.5 text-xs font-semibold text-white/50">Coming Soon</span>
+              </div>
+              <p class="mt-2 text-sm font-semibold text-white/80">For Instructors</p>
+              <p class="mt-2 text-xs font-semibold text-white/60"><span class="underline">Class-wide patterns and rubric clarification support</span> from student data. Identify students' common struggles from the writing and tutoring data, and refine rubrics over time.</p>
+            </div>
+          </ScrollReveal>
+        </div>
+        <p class="mt-3 text-center text-xs text-white/60">↺ insights from student data flows back to improve rubrics</p>
+      </section>
+    </div>
+
+    <!-- Interactive tool explorer -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 bg-white px-8 py-16 lg:max-w-6xl"
+      aria-labelledby="explorer-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="explorer-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Explore the tools for the ecosystem
+        </h2>
+        <p class="mt-2 text-gray-500">Click a tool to see its highlights.</p>
+      </ScrollReveal>
+
+      <div class="mt-8 overflow-hidden rounded-xl border border-gray-200">
+        <div class="flex flex-col lg:flex-row">
+        <!-- Tab rail -->
+        <div class="shrink-0 border-b border-gray-200 bg-gray-50 lg:w-52 lg:border-b-0 lg:border-r" role="tablist" aria-label="Ecosystem tools">
+          <button
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-fw"
+            id="tab-fw"
+            data-tab="fw"
+            class="tool-tab w-full border-b border-l-[3px] border-gray-200 border-l-umich-blue bg-white px-4 py-4 text-left transition hover:bg-white/80"
+          >
+            <span class="tab-title block text-sm font-semibold text-umich-blue">FeedbackWriter</span>
+            <span class="tab-sub mt-0.5 block text-xs text-gray-500">For TAs &amp; Graders</span>
+            <span class="tab-badge mt-1.5 inline-block rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">Available Now</span>
+          </button>
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-dm"
+            id="tab-dm"
+            data-tab="dm"
+            class="tool-tab w-full border-b border-l-[3px] border-gray-200 border-l-transparent bg-gray-50 px-4 py-4 text-left transition hover:bg-gray-100"
+          >
+            <span class="tab-title block text-sm font-semibold text-gray-700">DraftMentors</span>
+            <span class="tab-sub mt-0.5 block text-xs text-gray-500">For Students</span>
+            <span class="tab-badge mt-1.5 inline-block rounded-full bg-gray-200 px-2 py-0.5 text-xs font-semibold text-gray-500">Coming Soon</span>
+          </button>
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-id"
+            id="tab-id"
+            data-tab="id"
+            class="tool-tab w-full border-l-[3px] border-l-transparent bg-gray-50 px-4 py-4 text-left transition hover:bg-gray-100"
+          >
+            <span class="tab-title block text-sm font-semibold text-gray-700">Instructor Dashboard</span>
+            <span class="tab-sub mt-0.5 block text-xs text-gray-500">For Instructors</span>
+            <span class="tab-badge mt-1.5 inline-block rounded-full bg-gray-200 px-2 py-0.5 text-xs font-semibold text-gray-500">Coming Soon</span>
+          </button>
+        </div>
+
+        <!-- Panels -->
+        <div class="min-w-0 flex-1 bg-white p-6 lg:p-8">
+          <!-- FeedbackWriter panel -->
+          <div id="panel-fw" role="tabpanel" aria-labelledby="tab-fw">
+            <div class="mb-5 flex flex-wrap items-center gap-3">
+              <span class="bg-umich-maize text-umich-blue rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wide">FeedbackWriter</span>
+              <span class="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700">Available Now</span>
+              <span class="text-sm text-gray-500">For TAs &amp; Graders</span>
+            </div>
+            <p class="text-gray-700">AI-generated suggestions that are aligned with the rubrics and experts' cognitive practive in feedback provision. TAs adopt, edit, or dismiss each one before anything reaches students.</p>
+
+            <!-- 3-step workflow -->
+            <ol class="mt-6 grid gap-4 sm:grid-cols-4" role="list">
+              {[
+                { n: "1", title: "AI highlights", desc: "Scans the essay, highlights the relevant sentences to the rubric." },
+                { n: "2", title: "AI judgments", desc: "Proposes a met/missing judgment on the rubric based on the highlights." },
+                { n: "3", title: "AI feedback", desc: "Proposes a feedback message that aligns with effective feedback properties (e.g. guides without giving away the answer)."},
+                { n: "4", title: "TA decisions", desc: "TAs adopt, edit, or dismiss each suggestion. Nothing reaches students without explicit TA approval." },
+              ].map((s) => (
+                <li class="flex gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4">
+                  <span class="bg-umich-blue text-umich-maize mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold">{s.n}</span>
+                  <div>
+                    <p class="text-sm font-semibold text-umich-blue">{s.title}</p>
+                    <p class="mt-1 text-xs text-gray-600">{s.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <!-- Key features -->
+            <h3 class="mt-6 text-sm font-semibold text-gray-700">Key features</h3>
+            <ul class="mt-3 grid gap-3 sm:grid-cols-2" role="list">
+              {[
+                { title: "Rubric-grounded suggestions", desc: "Every suggestion references your actual rubric criteria — not generic writing advice." },
+                { title: "Expert-modeled AI pipeline", desc: "AI mirrors experts’ cognitive process — highlighting evidence, forming judgments, and drafting feedback — so suggestions slot naturally into how TAs already evaluate essays." },
+                { title: "Full TA control", desc: "TAs adopt, edit, or dismiss each suggestion. Nothing reaches students without explicit approval." },
+                { title: "Transparent, editable AI outputs", desc: "Every AI judgment and highlight is surfaced inline and can be overridden with a single action." },
+              ].map((f) => (
+                <li class="flex items-start gap-2.5 rounded-lg border border-gray-100 bg-white p-3.5 shadow-sm">
+                  <span class="mt-0.5 shrink-0 text-umich-maize font-bold">✓</span>
+                  <div>
+                    <p class="text-sm font-semibold text-umich-blue">{f.title}</p>
+                    <p class="mt-0.5 text-xs text-gray-500">{f.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <a href={`${BASE_URL}solution/feedbackwriter/`} class="mt-5 inline-block text-sm font-semibold text-umich-blue hover:underline">Full FeedbackWriter details →</a>
+          </div>
+
+          <!-- DraftMentors panel -->
+          <div id="panel-dm" role="tabpanel" aria-labelledby="tab-dm" hidden>
+            <div class="mb-5 flex flex-wrap items-center gap-3">
+              <span class="bg-umich-maize/20 text-umich-blue rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wide">DraftMentors</span>
+              <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-semibold text-gray-500">Coming Soon</span>
+              <span class="text-sm text-gray-500">For Students</span>
+            </div>
+            <p class="text-gray-700">Students get instant, rubric-aligned AI tutoring before and during writing. They can get personalized suggestions and practices based on what they already wrote, getting more prepared for the assignment.</p>
+
+            <ul class="mt-6 grid gap-4 sm:grid-cols-2" role="list">
+              {[
+                { title: "Always-available support", desc: "No waiting for office hours — students get high-quality guidance on demand, at any stage of drafting." },
+                { title: "Rubric-grounded guidance", desc: "Every suggestion reflects the instructor's criteria, not generic writing advice — so the guidance align with teaching objectives." },
+                { title: "Revision-focused, not rewriting", desc: "Feedback targets what the student actually wrote and guides them toward their own improvements, preserving genuine understanding." },
+                { title: "Targeted knowledge tutoring", desc: "Personalized practice helps students master the concepts behind the assignment, preparing the students for the assignment." },
+              ].map((f) => (
+                <li class="flex items-start gap-2.5 rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
+                  <span class="mt-0.5 shrink-0 text-umich-maize font-bold">✓</span>
+                  <div>
+                    <p class="text-sm font-semibold text-umich-blue">{f.title}</p>
+                    <p class="mt-1 text-xs text-gray-500">{f.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-800">
+              DraftMentors is in development. <a href={`${BASE_URL}signup/`} class="font-semibold underline hover:no-underline">Contact us</a> to stay updated.
+            </div>
+
+            <!--<a href={`${BASE_URL}solution/draftmentors/`} class="mt-5 inline-block text-sm font-semibold text-umich-blue hover:underline">Full DraftMentors details →</a> -->
+          </div>
+
+          <!-- Instructor Dashboard panel -->
+          <div id="panel-id" role="tabpanel" aria-labelledby="tab-id" hidden>
+            <div class="mb-5 flex flex-wrap items-center gap-3">
+              <span class="bg-umich-maize/20 text-umich-blue rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wide">Instructor Dashboard</span>
+              <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-semibold text-gray-500">Coming Soon</span>
+              <span class="text-sm text-gray-500">For Instructors</span>
+            </div>
+            <p class="text-gray-700">Track class-wide performance, surface where students struggle, and continuously refine rubrics based on student data — the data from FeedbackWriter and DraftMentors.</p>
+
+            <ul class="mt-6 grid gap-4 sm:grid-cols-2" role="list">
+              {[
+                { title: "Assignment & rubric design", desc: "Define prompts and rubric criteria that ground every AI suggestion and TA evaluation — keeping all feedback faithful to your course goals." },
+                { title: "Student challenge identification", desc: "Aggregates writing and tutoring data to surface recurring misconceptions, so you know exactly where students struggle before the next cycle." },
+                { title: "TA consistency monitoring", desc: "Track inter-rater variance across sections to ensure rubric alignment holds at scale and spot where grader calibration is needed." },
+                { title: "Data-driven rubric refinement", desc: "Pattern insights from grading and tutoring feed directly into rubric improvement, helping you sharpen criteria each time the course runs." },
+              ].map((f) => (
+                <li class="flex items-start gap-2.5 rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
+                  <span class="mt-0.5 shrink-0 text-umich-maize font-bold">✓</span>
+                  <div>
+                    <p class="text-sm font-semibold text-umich-blue">{f.title}</p>
+                    <p class="mt-1 text-xs text-gray-500">{f.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-6 rounded-xl border border-umich-blue/10 bg-umich-blue/5 px-5 py-4 text-sm text-umich-blue">
+              <strong>The instructor at the center of the loop.</strong> Each grading cycle feeds data back to the Dashboard — supporting inspection and continuous rubric refinement.
+            </div>
+
+            <div class="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-800">
+              Instructor Dashboard is in development. <a href={`${BASE_URL}signup/`} class="font-semibold underline hover:no-underline">Contact us</a> to stay updated.
+            </div>
+
+            <!-- <a href={`${BASE_URL}solution/instructor-dashboard/`} class="mt-5 inline-block text-sm font-semibold text-umich-blue hover:underline">Full Instructor Dashboard details →</a> -->
+          </div>
+        </div>
+        </div><!-- end flex row -->
+      </div><!-- end card -->
+    </section>
+
+    <script>
+      const tabs = document.querySelectorAll<HTMLButtonElement>('.tool-tab');
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.tab!;
+
+          tabs.forEach((t) => {
+            const isActive = t.dataset.tab === target;
+            t.setAttribute('aria-selected', String(isActive));
+
+            const title = t.querySelector<HTMLElement>('.tab-title')!;
+            if (isActive) {
+              t.classList.remove('border-l-transparent', 'bg-gray-50');
+              t.classList.add('border-l-umich-blue', 'bg-white');
+              title.classList.remove('text-gray-700');
+              title.classList.add('text-umich-blue');
+            } else {
+              t.classList.remove('border-l-umich-blue', 'bg-white');
+              t.classList.add('border-l-transparent', 'bg-gray-50');
+              title.classList.remove('text-umich-blue');
+              title.classList.add('text-gray-700');
+            }
+          });
+
+          document.querySelectorAll('[role="tabpanel"]').forEach((panel) => {
+            (panel as HTMLElement).hidden = panel.id !== `panel-${target}`;
+          });
+        });
+      });
+    </script>
+
+    <!-- FAQ -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 bg-white p-16 lg:max-w-6xl"
+      aria-labelledby="faq-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="faq-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Frequently asked questions
+        </h2>
+      </ScrollReveal>
+      <AccordionFAQ items={faq} />
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="mx-auto max-w-none p-16 lg:max-w-6xl"
+      aria-labelledby="solution-cta-heading"
+    >
+      <ScrollReveal>
+        <div class="rounded-2xl bg-gradient-to-br from-umich-blue to-[#002d5e] px-8 py-12 text-center shadow-xl">
+          <h2 id="solution-cta-heading" class="text-2xl font-semibold text-white">
+            Join us in scaling high-quality feedback for student writing
+          </h2>
+          <p class="mx-auto mt-4 max-w-xl text-pretty text-white/80">
+            If you are an instructor or instructional leader interested in
+            rubric-grounded, human-reviewed AI feedback, we would like to hear from you.
+          </p>
+          <a
+            href={`${BASE_URL}signup/`}
+            class="bg-umich-maize text-umich-blue mt-8 inline-block rounded-lg px-6 py-3 text-sm font-semibold transition hover:brightness-95 focus:outline-none"
+          >
+            Get in touch
+          </a>
+        </div>
+      </ScrollReveal>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,280 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import ScrollReveal from "~/components/ScrollReveal.astro";
+import AccordionFAQ from "~/components/AccordionFAQ.astro";
+
+const BASE_URL = import.meta.env.BASE_URL;
+
+const faq = [
+  {
+    q: "What is DraftMentors?",
+    a: "DraftMentors provides structured student support on open-ended responses, aligned with instructor expectations. It complements the instructor-and-TA workflow rather than replacing it — students get guidance before submission, while TAs review and finalize feedback after.",
+  },
+  {
+    q: "Do students see raw AI output?",
+    a: "DraftMentors is designed to guide students through revision, not produce feedback on behalf of instructors. Its output is student-facing support calibrated to course rubrics, distinct from the TA-reviewed feedback produced by FeedbackWriter.",
+  },
+];
+
+const features = [
+  {
+    title: "Rubric-aligned feedback",
+    desc: "Every piece of guidance reflects the criteria your instructor set, not generic writing advice. Students always know what they're being evaluated on.",
+  },
+  {
+    title: "Personalized tutoring",
+    desc: "Students get targeted guidance on their specific draft — not a one-size-fits-all comment. DraftMentors responds to what they actually wrote.",
+  },
+  {
+    title: "Revision-focused guidance",
+    desc: "DraftMentors helps students improve their own work, not rewrite it for them. The goal is deeper understanding, not a shortcut.",
+  },
+  {
+    title: "Consistent with TA evaluation",
+    desc: "Feedback is calibrated to match what TAs will be looking for when they grade, so students aren't surprised by the formal assessment.",
+  },
+];
+---
+
+<Layout
+  title="DraftMentors | Mentor AI"
+  description="DraftMentors gives students instant, rubric-aligned feedback and personalized tutoring on open-ended drafts to support revision and deeper understanding."
+>
+  <Header />
+  <div class="border-b border-amber-200 bg-amber-50 px-6 py-3 text-center text-sm font-medium text-amber-800">
+    🚧 This tool is in development — coming soon. <a href={`${import.meta.env.BASE_URL}signup/`} class="underline hover:no-underline">Join the waitlist</a> to stay updated.
+  </div>
+  <main
+    id="main-content"
+    role="main"
+    class="bg-background flex-1 pb-24 md:pb-40"
+  >
+    <!-- Hero -->
+    <div class="w-full bg-gradient-to-br from-umich-blue via-[#002d5e] to-[#001830]">
+      <section class="mx-auto max-w-6xl px-8 pb-20 pt-14" aria-labelledby="dm-heading">
+        <ScrollReveal>
+          <a
+            href={`${BASE_URL}solution/`}
+            class="inline-flex items-center gap-1 text-sm text-white/50 transition hover:text-white/80"
+          >
+            ← Solution Overview
+          </a>
+        </ScrollReveal>
+        <div class="mt-6 grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <ScrollReveal delay={0.04}>
+              <span class="bg-umich-maize text-umich-blue inline-block rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wide">
+                DraftMentors
+              </span>
+              <h1
+                id="dm-heading"
+                class="mt-4 text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl"
+              >
+                Instant, Rubric-Aligned Support for Students
+              </h1>
+              <p class="mt-5 text-lg text-white/75">
+                DraftMentors gives students structured, personalized feedback on
+                their open-ended drafts — aligned with your rubric and consistent
+                with what TAs are evaluating.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={`${BASE_URL}signup/`}
+                  class="bg-umich-maize text-umich-blue rounded-lg px-5 py-2.5 text-sm font-semibold transition hover:brightness-95 focus:outline-none"
+                >
+                  Get started
+                </a>
+                <a
+                  href={`${BASE_URL}solution/feedbackwriter/`}
+                  class="rounded-lg border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none"
+                >
+                  See FeedbackWriter
+                </a>
+              </div>
+            </ScrollReveal>
+          </div>
+          <!-- Feature chips -->
+          <ScrollReveal delay={0.12}>
+            <div class="grid grid-cols-1 gap-3">
+              {
+                features.map((f) => (
+                  <div class="flex items-start gap-3 rounded-xl border border-white/10 bg-white/8 px-5 py-4">
+                    <span class="mt-0.5 text-umich-maize text-lg font-bold shrink-0">✓</span>
+                    <div>
+                      <p class="text-sm font-semibold text-white">{f.title}</p>
+                      <p class="mt-0.5 text-xs text-white/60">{f.desc}</p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    </div>
+
+    <!-- Features detail -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 bg-white p-16 lg:max-w-6xl"
+      aria-labelledby="dm-features-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="dm-features-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          What students get
+        </h2>
+      </ScrollReveal>
+      <ul class="mt-10 grid gap-6 sm:grid-cols-2" role="list">
+        {
+          features.map((f, i) => (
+            <li>
+              <ScrollReveal delay={0.05 * (i + 1)}>
+                <div class="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                  <h3 class="text-umich-blue font-semibold">{f.title}</h3>
+                  <p class="mt-2 text-sm text-gray-600">{f.desc}</p>
+                </div>
+              </ScrollReveal>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- How DraftMentors complements FeedbackWriter -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 p-16 lg:max-w-6xl"
+      aria-labelledby="complement-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="complement-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Part of a complete feedback loop
+        </h2>
+        <p class="mt-4 max-w-3xl text-gray-600">
+          DraftMentors and FeedbackWriter aren't competing tools — they work at
+          different points in the feedback cycle, with the Instructor Dashboard
+          connecting both.
+        </p>
+      </ScrollReveal>
+      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        <ScrollReveal delay={0.05}>
+          <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+            <span class="bg-umich-maize/20 text-umich-blue rounded-full px-2.5 py-0.5 text-xs font-semibold">Before submission</span>
+            <h3 class="text-umich-blue mt-3 font-semibold">DraftMentors</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Students get rubric-aligned guidance while writing their draft,
+              enabling revision before the formal submission deadline.
+            </p>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+            <span class="bg-umich-blue/10 text-umich-blue rounded-full px-2.5 py-0.5 text-xs font-semibold">After submission</span>
+            <h3 class="text-umich-blue mt-3 font-semibold">FeedbackWriter</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              TAs use AI-assisted suggestions to provide formal, rubric-aligned
+              feedback that students receive after grading.
+            </p>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.15}>
+          <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+            <span class="bg-umich-maize text-umich-blue rounded-full px-2.5 py-0.5 text-xs font-bold">Always</span>
+            <h3 class="text-umich-blue mt-3 font-semibold">Instructor Dashboard</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Data from both tools flows back to instructors, revealing patterns
+              that inform rubric refinement and curriculum improvements.
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 bg-white p-16 lg:max-w-6xl"
+      aria-labelledby="dm-faq-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="dm-faq-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Frequently asked questions
+        </h2>
+      </ScrollReveal>
+      <AccordionFAQ items={faq} />
+    </section>
+
+    <!-- Related tools -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 bg-white px-8 py-12 lg:max-w-6xl"
+      aria-labelledby="dm-related-heading"
+    >
+      <ScrollReveal>
+        <h2 id="dm-related-heading" class="text-umich-blue text-lg font-semibold">
+          Also in the Mentor AI ecosystem
+        </h2>
+      </ScrollReveal>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <ScrollReveal delay={0.05}>
+          <a
+            href={`${BASE_URL}solution/instructor-dashboard/`}
+            class="group flex items-center justify-between rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <div>
+              <span class="bg-umich-maize/20 text-umich-blue rounded-full px-2 py-0.5 text-xs font-semibold">Instructor Dashboard</span>
+              <p class="mt-2 text-sm text-gray-600">Design assignments, monitor class performance, and refine rubrics.</p>
+            </div>
+            <span class="text-umich-blue ml-4 shrink-0 text-sm font-semibold group-hover:underline">→</span>
+          </a>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <a
+            href={`${BASE_URL}solution/feedbackwriter/`}
+            class="group flex items-center justify-between rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <div>
+              <span class="bg-umich-blue/10 text-umich-blue rounded-full px-2 py-0.5 text-xs font-semibold">FeedbackWriter</span>
+              <p class="mt-2 text-sm text-gray-600">Help TAs provide high-quality, rubric-aligned feedback at scale.</p>
+            </div>
+            <span class="text-umich-blue ml-4 shrink-0 text-sm font-semibold group-hover:underline">→</span>
+          </a>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="mx-auto max-w-none p-16 lg:max-w-6xl"
+      aria-labelledby="dm-cta-heading"
+    >
+      <ScrollReveal>
+        <div class="rounded-2xl bg-gradient-to-br from-umich-blue to-[#002d5e] px-8 py-12 text-center shadow-xl">
+          <h2 id="dm-cta-heading" class="text-2xl font-semibold text-white">
+            Work with us
+          </h2>
+          <p class="mx-auto mt-4 max-w-xl text-pretty text-white/80">
+            Interested in deploying DraftMentors for your students? Tell us
+            about your course and we'll follow up.
+          </p>
+          <a
+            href={`${BASE_URL}signup/`}
+            class="bg-umich-maize text-umich-blue mt-8 inline-block rounded-lg px-6 py-3 text-sm font-semibold transition hover:brightness-95 focus:outline-none"
+          >
+            Get in touch
+          </a>
+        </div>
+      </ScrollReveal>
+    </section>
+  </main>
+  <Footer />
+</Layout>

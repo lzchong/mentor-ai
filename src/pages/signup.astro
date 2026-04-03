@@ -45,39 +45,57 @@ const JOIN_FORM_EMBED_URL = `${JOIN_FORM_URL}?embedded=true`;
       class="mx-auto max-w-none border-t border-gray-200/80 p-16 lg:max-w-6xl"
       aria-labelledby="who-heading"
     >
-      <div class="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
-        <div>
-          <ScrollReveal>
-            <h2
-              id="who-heading"
-              class="text-umich-blue text-2xl font-semibold tracking-tight"
-            >
-              Who this is for
-            </h2>
-          </ScrollReveal>
+      <ScrollReveal>
+        <h2
+          id="who-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight"
+        >
+          Who this is for
+        </h2>
+      </ScrollReveal>
+      <ul class="mt-8 grid gap-6 sm:grid-cols-2" role="list">
+        <li>
           <ScrollReveal delay={0.06}>
-            <ul class="mt-6 list-disc space-y-3 pl-5 text-pretty text-gray-700">
-              <li>
-                <strong class="text-gray-900">Instructors</strong> teaching writing-intensive
-                or open-ended assignments who care about rubric alignment.
-              </li>
-              <li>
-                <strong class="text-gray-900">Departments and programs</strong> exploring
-                responsible AI support for grading and feedback at scale.
-              </li>
-              <li>
-                <strong class="text-gray-900">Researchers and partners</strong> interested
-                in empirical work on human-AI feedback workflows.
-              </li>
-            </ul>
+            <div class="h-full rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+              <h3 class="text-umich-blue text-lg font-semibold">I'm an instructor</h3>
+              <p class="mt-3 text-pretty text-gray-700">
+                You teach a course with open-ended writing assignments
+                and want rubric-aligned, scalable, high-quality feedback. 
+              </p>
+              <ul class="mt-4 space-y-1.5 text-sm text-gray-700">
+                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Access the Instructor Dashboard for grade and rubric insights</li>
+                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Deploy FeedbackWriter for your TAs</li>
+                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Optionally enable DraftMentors for students</li>
+              </ul>
+            </div>
           </ScrollReveal>
-        </div>
-        <div>
+        </li>
+        <li>
           <ScrollReveal delay={0.1}>
-            <h2 class="text-umich-blue text-2xl font-semibold tracking-tight">
+            <div class="h-full rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+              <h3 class="text-umich-blue text-lg font-semibold">I'm a researcher or department leader</h3>
+              <p class="mt-3 text-pretty text-gray-700">
+                You're interested in empirical work on human-AI feedback
+                workflows, or exploring responsible AI support for grading at
+                scale in your department or program.
+              </p>
+              <ul class="mt-4 space-y-1.5 text-sm text-gray-700">
+                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Discuss joint research or pilot studies</li>
+                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Explore department-wide deployments</li>
+                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Access published methods and data context</li>
+              </ul>
+            </div>
+          </ScrollReveal>
+        </li>
+      </ul>
+<!--
+      <div class="mt-10 mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
+        <div>
+          <ScrollReveal delay={0.14}>
+            <h2 class="text-umich-blue text-xl font-semibold tracking-tight">
               What you can expect
             </h2>
-            <ul class="mt-6 list-disc space-y-3 pl-5 text-pretty text-gray-700">
+            <ul class="mt-4 list-disc space-y-3 pl-5 text-pretty text-gray-700">
               <li>
                 Conversations grounded in our published trials and design
                 experience, not a sales pitch.
@@ -94,6 +112,7 @@ const JOIN_FORM_EMBED_URL = `${JOIN_FORM_URL}?embedded=true`;
           </ScrollReveal>
         </div>
       </div>
+  -->
     </section>
     <section
       class="mx-auto max-w-none border-t border-gray-200/80 bg-white/50 p-16 lg:max-w-6xl"
@@ -130,6 +149,7 @@ const JOIN_FORM_EMBED_URL = `${JOIN_FORM_URL}?embedded=true`;
           </p>
         </div>
       </ScrollReveal>
+<!--
       <ScrollReveal delay={0.14}>
         <h3 class="text-umich-blue mt-12 text-lg font-semibold">
           What happens next
@@ -148,7 +168,8 @@ const JOIN_FORM_EMBED_URL = `${JOIN_FORM_URL}?embedded=true`;
           </li>
         </ol>
       </ScrollReveal>
-      <ScrollReveal delay={0.18}>
+  -->
+      <ScrollReveal delay={0.14}>
         <p class="mt-8 text-sm text-gray-700">
           General questions? Contact us via email or phone.
         </p>

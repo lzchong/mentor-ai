@@ -4,6 +4,7 @@ import Footer from "~/components/Footer.astro";
 import Header from "~/components/Header.astro";
 import TeamMemberCard from "~/components/TeamMemberCard.astro";
 import ScrollReveal from "~/components/ScrollReveal.astro";
+import StatsBar from "~/components/StatsBar.astro";
 import GitHubIcon from "~/assets/icons/github.svg";
 import GoogleScholarIcon from "~/assets/icons/googlescholar.svg";
 import LinkedInIcon from "~/assets/icons/linkedin.svg";
@@ -12,7 +13,7 @@ import XIcon from "~/assets/icons/x.svg";
 
 const faculty = [
   {
-    name: "Xu Wang",
+    name: "Dr. Xu Wang",
     role: "Assistant Professor",
     affiliation: "Computer Science and Engineering",
     organization: "University of Michigan",
@@ -31,7 +32,7 @@ const faculty = [
     ],
   },
   {
-    name: "Mitchell Dudley",
+    name: "Dr. Mitchell Dudley",
     role: "Teaching Professor of Economics",
     affiliation: "College of Literature, Science, and the Arts",
     organization: "University of Michigan",
@@ -50,7 +51,7 @@ const faculty = [
     ],
   },
   {
-    name: "Larissa Sano",
+    name: "Dr. Larissa Sano",
     role: "Lecturer IV in Sweetland Writing Center",
     affiliation: "College of Literature, Science, and the Arts",
     organization: "University of Michigan",
@@ -133,46 +134,8 @@ const researchers = [
         icon: GitHubIcon,
       },
     ],
-  },
-  {
-    name: "Aditya Mahesh",
-    role: "Undergraduate Research Assistant",
-    affiliation: "Computer Science and Engineering",
-    organization: "University of Michigan",
-    image: "mahesh.jpg",
-    socials: [
-      {
-        href: "https://www.linkedin.com/in/adimahesh/",
-        label: "LinkedIn",
-        icon: LinkedInIcon,
-      },
-      {
-        href: "https://github.com/am-2003",
-        label: "GitHub",
-        icon: GitHubIcon,
-      },
-    ],
-  },
-  {
-    name: "Zejia Shen",
-    role: "Undergraduate Research Assistant",
-    affiliation: "Computer Science and Engineering",
-    organization: "University of Michigan",
-    image: "zejia.jpg",
-    socials: [
-      {
-        href: "https://scholar.google.com/citations?user=JnG2w9UAAAAJ&hl=en",
-        label: "Google Scholar",
-        icon: GoogleScholarIcon,
-      },
-      {
-        href: "https://www.linkedin.com/in/zejia-shen/",
-        label: "LinkedIn",
-        icon: LinkedInIcon,
-      },
-    ],
-  },
-];
+  }];
+
 
 const BASE_URL = import.meta.env.BASE_URL;
 ---
@@ -193,22 +156,51 @@ const BASE_URL = import.meta.env.BASE_URL;
           <h1
             class="text-umich-blue text-5xl leading-none font-semibold tracking-tight text-balance sm:text-7xl"
           >
-            We’re changing how feedback works in education
+            Enabling Timely, High-Quality Feedback at Scale
           </h1>
         </ScrollReveal>
+
         <ScrollReveal delay={0.1}>
           <p
             class="mt-8 text-lg font-medium text-pretty text-gray-700 sm:text-xl sm:leading-8"
           >
-            We envision a future where every student receives meaningful,
-            high-quality feedback on their writing, tailored to their individual
-            needs while remaining aligned with course rubrics and expectations,
+            We envision a future where every student receives timely,
+            high-quality feedback and guidance during and after they practice,
             without increasing the burden on instructors.
           </p>
         </ScrollReveal>
       </div>
+<!--
       <div class="mx-auto mt-20 max-w-3xl lg:mx-0">
+        <ScrollReveal delay={0.15}>
+          <h2
+            class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
+          >
+            Why feedback is hard to scale
+          </h2>
+        </ScrollReveal>
         <ScrollReveal delay={0.2}>
+          <p class="mt-6 text-lg/8 text-gray-700">
+            Formative feedback supports learning in open-ended writing, but
+            producing it well takes sustained attention from instructors and
+            teaching assistants, especially in large courses.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.25}>
+          <p class="mt-4 text-lg/8 text-gray-700">
+            Automated comments can be fast but risky: they can misread
+            discipline-specific reasoning or drift from your rubric, and they
+            may not provide the kind of guidance students can use to revise.
+            What we need is not automation alone, but <strong
+              class="font-medium text-gray-900">human judgment</strong
+            > steering <strong class="font-medium text-gray-900"
+              >AI assistance</strong
+            >.
+          </p>
+        </ScrollReveal>
+      </div> 
+      <div class="mx-auto mt-20 max-w-3xl lg:mx-0">
+        <ScrollReveal delay={0.3}>
           <h2
             class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
           >
@@ -218,10 +210,9 @@ const BASE_URL = import.meta.env.BASE_URL;
         <ScrollReveal delay={0.3}>
           <p class="mt-6 text-lg/8">
             Providing detailed, personalized feedback is challenging in large
-            writing-intensive courses. In a randomized controlled trial with 354
-            undergraduate students, AI-mediated feedback through FeedbackWriter
+            writing-intensive courses. <strong class="font-medium text-gray-900">FeedbackWriter</strong> — our deployed and peer-reviewed tool for TAs — has been evaluated in a randomized controlled trial with 354 undergraduate students. AI-mediated feedback through FeedbackWriter
             led to significantly higher-quality revisions than human-only TA
-            feedback; course post-test scores did not differ significantly
+            feedback (Cohen's d = 0.50); course post-test scores did not differ significantly
             between conditions in that study. Our mission is to translate these
             findings into practical tools that help instructors and TAs deliver
             consistent, rubric-aligned feedback, without claiming learning gains
@@ -229,14 +220,9 @@ const BASE_URL = import.meta.env.BASE_URL;
           </p>
         </ScrollReveal>
       </div>
-      <div class="mx-auto mt-20 max-w-3xl lg:mx-0">
-        <ScrollReveal delay={0.35}>
-          <h2
-            class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
-          >
-            Our impact
-          </h2>
-        </ScrollReveal>
+  -->
+  <!--
+      <div class="mx-auto max-w-3xl lg:mx-0">
         <ScrollReveal delay={0.38}>
           <ul class="mt-6 list-disc space-y-3 pl-6 text-lg/8 text-pretty">
             <li>
@@ -258,7 +244,8 @@ const BASE_URL = import.meta.env.BASE_URL;
           </ul>
         </ScrollReveal>
       </div>
-      <div class="mx-auto mt-20 max-w-3xl lg:mx-0">
+  -->
+      <div class="mt-20 mx-auto max-w-3xl lg:mx-0">
         <ScrollReveal delay={0.4}>
           <h2
             class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
@@ -267,11 +254,9 @@ const BASE_URL = import.meta.env.BASE_URL;
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.5}>
-          <p class="mt-6 text-lg/8">
+          <p class="mt-6 text-sm">
             Meet our interdisciplinary research team working on scalable
-            AI-assisted feedback ecosystems for higher education, helping
-            instructors scale personalized support on open-ended assignments
-            while grounding product decisions in classroom evidence.
+            AI-assisted feedback ecosystems to scale high-quality feedback on open-ended assignments.
           </p>
         </ScrollReveal>
       </div>
@@ -321,6 +306,27 @@ const BASE_URL = import.meta.env.BASE_URL;
           }
         </ul>
       </ScrollReveal>
+      <div class="mx-auto mt-20 max-w-3xl lg:mx-0">
+        <ScrollReveal delay={0.35}>
+          <h2
+            class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
+          >
+            Our impact
+          </h2>
+        </ScrollReveal>
+      </div>
+      <ScrollReveal delay={0.36}>
+        <div class="mt-8 overflow-hidden rounded-lg">
+          <StatsBar
+            stats={[
+        { value: "1,000+ students", label: "have benifited from the system" },
+        { value: "3,500+ essays", label: "received feedback through the system" },
+        { value: "d = 0.50", label: "revision quality improvement compared to human-only feedback (Cohen's d)" },
+      ]}
+          />
+        </div>
+      </ScrollReveal>
+<!--
       <div class="mx-auto mt-20 max-w-2xl lg:mx-0">
         <ScrollReveal delay={1.0}>
           <h2
@@ -342,6 +348,7 @@ const BASE_URL = import.meta.env.BASE_URL;
           </a>
         </ScrollReveal>
       </div>
+-->
     </section>
   </main>
   <Footer />

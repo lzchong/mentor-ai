@@ -1,0 +1,82 @@
+---
+interface FAQItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<dl class="mt-10 max-w-3xl divide-y divide-gray-200">
+  {
+    items.map((item, i) => (
+      <div class="accordion-item">
+        <dt>
+          <button
+            type="button"
+            class="accordion-trigger text-umich-blue flex w-full items-center justify-between py-5 text-left text-lg font-semibold transition hover:opacity-80"
+            aria-expanded="false"
+            aria-controls={`faq-panel-${i}`}
+            id={`faq-trigger-${i}`}
+          >
+            <span>{item.q}</span>
+            <span
+              class="accordion-icon text-umich-maize ml-4 shrink-0 text-xl font-bold leading-none"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </button>
+        </dt>
+        <dd
+          id={`faq-panel-${i}`}
+          role="region"
+          aria-labelledby={`faq-trigger-${i}`}
+          class="accordion-panel overflow-hidden"
+          style="max-height: 0;"
+        >
+          <p class="pb-5 text-pretty text-gray-700">{item.a}</p>
+        </dd>
+      </div>
+    ))
+  }
+</dl>
+
+<script>
+  const triggers = document.querySelectorAll<HTMLButtonElement>(
+    ".accordion-trigger"
+  );
+
+  triggers.forEach((trigger) => {
+    const panel = document.getElementById(
+      trigger.getAttribute("aria-controls") ?? ""
+    );
+    const icon = trigger.querySelector<HTMLElement>(".accordion-icon");
+
+    if (!panel || !icon) return;
+
+    trigger.addEventListener("click", () => {
+      const isOpen = trigger.getAttribute("aria-expanded") === "true";
+
+      if (isOpen) {
+        trigger.setAttribute("aria-expanded", "false");
+        panel.style.maxHeight = "0";
+        icon.textContent = "+";
+      } else {
+        trigger.setAttribute("aria-expanded", "true");
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        icon.textContent = "−";
+      }
+    });
+  });
+</script>
+
+<style>
+  .accordion-panel {
+    transition: max-height 0.2s ease;
+  }
+</style>

@@ -1,0 +1,357 @@
+---
+import { Image } from "astro:assets";
+import Layout from "~/layouts/Layout.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import ScrollReveal from "~/components/ScrollReveal.astro";
+import AccordionFAQ from "~/components/AccordionFAQ.astro";
+import StatsBar from "~/components/StatsBar.astro";
+import screenshotImage from "~/assets/images/screenshot.jpg";
+import pipelineImage from "~/assets/images/research/pipeline.png";
+
+const BASE_URL = import.meta.env.BASE_URL;
+
+const faq = [
+  {
+    q: "Do students see raw AI output?",
+    a: "Teaching assistants receive AI suggestions and decide what to adopt, edit, or dismiss before feedback reaches students. The final message reflects human judgment aligned with your rubric — students never see unreviewed AI output.",
+  },
+  {
+    q: "What evidence supports the approach?",
+    a: "A randomized controlled trial (N = 354) found significantly higher-quality revisions with AI-mediated feedback via FeedbackWriter versus human-only feedback. Course post-test scores did not differ significantly between conditions; see our Research page for full citations and nuance.",
+  },
+];
+
+const features = [
+  { title: "Rubric-grounded suggestions", desc: "Every suggestion references your actual rubric criteria — not generic writing advice." },
+                { title: "Expert-modeled AI pipeline", desc: "AI mirrors experts’ cognitive process — highlighting evidence, forming judgments, and drafting feedback — so suggestions slot naturally into how TAs already evaluate essays." },
+                { title: "Full TA control", desc: "TAs adopt, edit, or dismiss each suggestion. Nothing reaches students without explicit approval." },
+                { title: "Transparent, editable AI outputs", desc: "Every AI judgment and highlight is surfaced inline and can be overridden with a single action." },
+];
+
+const quotes = [
+            {
+              quote: "The quality of feedback would be higher… and much quicker with the AI. I was definitely more consistent with the AI.",
+              cite: "Teaching assistant (CHI '26)",
+            },
+            {
+              quote: "think it’s hard for me to write those comments because they can get a little bit wordy, but for the AI to do it, it’s quick and it’s easy and I think that’s really good to use.",
+              cite: "Teaching assistant (AIED '25)",
+            },
+            {
+              quote: "(The AI suggestions) let me think about it more to see if the student did meet it or not. It let me do a more thorough job.",
+              cite: "Teaching assistant (CHI '26)",
+            },
+          ]
+---
+
+<Layout
+  title="FeedbackWriter | Mentor AI"
+  description="FeedbackWriter helps TAs provide high-quality, rubric-aligned feedback at scale by combining AI-generated suggestions with human review and judgment."
+>
+  <Header />
+  <main
+    id="main-content"
+    role="main"
+    class="bg-background flex-1 pb-24 md:pb-40"
+  >
+    <!-- Hero -->
+    <div class="w-full bg-gradient-to-br from-umich-blue via-[#002d5e] to-[#001830]">
+      <section class="mx-auto max-w-6xl px-8 pb-20 pt-14" aria-labelledby="fw-heading">
+        <ScrollReveal>
+          <a
+            href={`${BASE_URL}solution/`}
+            class="inline-flex items-center gap-1 text-sm text-white/50 transition hover:text-white/80"
+          >
+            ← Solution Overview
+          </a>
+        </ScrollReveal>
+        <div class="mt-6 grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <ScrollReveal delay={0.04}>
+              <span class="bg-umich-maize text-umich-blue inline-block rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wide">
+                FeedbackWriter
+              </span>
+              <h1
+                id="fw-heading"
+                class="mt-4 text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl"
+              >
+                High-Quality AI-Mediated Feedback at Scale
+              </h1>
+              <p class="mt-5 text-lg text-white/75">
+                FeedbackWriter provides AI suggestions that mirror how expert TAs evaluate writing — highlighting evidence, forming judgments, and drafting feedback — while keeping TAs in full control to adopt, edit, or dismiss every suggestion.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={`${BASE_URL}research/`}
+                  class="bg-umich-maize text-umich-blue rounded-lg px-5 py-2.5 text-sm font-semibold transition hover:brightness-95 focus:outline-none"
+                >
+                  See the research
+                </a>
+                <a
+                  href={`${BASE_URL}signup/`}
+                  class="rounded-lg border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none"
+                >
+                  Get in touch
+                </a>
+              </div>
+            </ScrollReveal>
+          </div>
+          <ScrollReveal delay={0.14}>
+            <Image
+              src={screenshotImage}
+              alt="Screenshot of the FeedbackWriter interface showing AI suggestions alongside a student essay."
+              width={1087}
+              height={663}
+              class="rounded-xl shadow-2xl ring-1 ring-white/10"
+            />
+          </ScrollReveal>
+        </div>
+      </section>
+    </div>
+
+    <!-- Evidence stats -->
+    <StatsBar
+    stats={[
+        { value: "1,000+ students", label: "have benifited from the system" },
+        { value: "3,500+ essays", label: "received feedback through the system" },
+        { value: "d = 0.50", label: "revision quality improvement compared to human-only feedback (Cohen's d)" },
+      ]}
+    />
+
+<!--    stats={[
+        { value: "N = 354", label: "students in the randomized trial" },
+        { value: "1,366", label: "essays graded through FeedbackWriter" },
+        { value: "d = 0.50", label: "revision quality improvement (Cohen's d)" },
+        { value: "88.7%", label: "AI–TA judgment agreement" },
+      ]} -->
+
+    <!-- TA quotes carousel -->
+    <section class="mx-auto max-w-none border-t border-gray-100 bg-white py-12 lg:max-w-6xl">
+      <ScrollReveal>
+        <h2 class="text-umich-blue px-8 text-2xl font-semibold tracking-tight sm:text-3xl">Voices from the TAs</h2>
+        <div class="mt-6 flex gap-4 overflow-x-auto px-8 pb-4 snap-x snap-mandatory scroll-smooth" style="scrollbar-width: thin;">
+          {quotes.map((q) => (
+            <div class="w-100 shrink-0 snap-start rounded-2xl border border-umich-blue/10 bg-umich-blue/5 px-7 py-8">
+              <div class="text-umich-maize text-4xl font-serif leading-none">"</div>
+              <blockquote class="mt-2 text-base font-medium text-umich-blue text-pretty">{q.quote}</blockquote>
+              <cite class="mt-4 block text-xs text-gray-500 not-italic">— {q.cite}</cite>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+    </section>
+
+    <!-- How it works -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 bg-white px-8 py-16 lg:max-w-6xl"
+      aria-labelledby="how-it-works-heading"
+    >
+      <ScrollReveal>
+        <div>
+          <h2
+            id="how-it-works-heading"
+            class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+          >
+            How FeedbackWriter works
+          </h2>
+          <p class="mt-3 text-gray-600">
+            FeedbackWriter operates on the rubrics that the instructor provides. The suggestions are created through an AI pipeline that mirrors human evaluators' cognitive process in evaluate essays — but at scale. To facilitate human-AI collaboration, the system displays intermediate AI outputs from all steps for user inspection, and provides interactions for adjustment. 
+          </p>
+        </div>
+        <figure class="mt-10">
+          <Image
+            src={pipelineImage}
+            alt="Workflow diagram: student submits an essay; the system generates rubric-based AI suggestions; the TA reviews and sends feedback; the student revises."
+            width={3122}
+            height={618}
+            class="w-full rounded-xl bg-white shadow-md ring-1 ring-gray-900/10"
+          />
+        </figure>
+      </ScrollReveal>
+    </section>
+
+    <!-- Step-by-step workflow -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 p-16 lg:max-w-6xl"
+      aria-labelledby="steps-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="steps-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Step by step
+        </h2>
+      </ScrollReveal>
+      <ol class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list">
+        <li>
+          <ScrollReveal delay={0.05}>
+            <div class="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+              <div class="bg-umich-blue text-umich-maize mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold">1</div>
+              <h3 class="text-umich-blue font-semibold">AI highlights</h3>
+              <p class="mt-2 text-sm text-gray-600">
+                For each rubric item, the AI scans the essay and highlights the most relevant sentences — so TAs can see exactly what the AI is responding to.
+              </p>
+            </div>
+          </ScrollReveal>
+        </li>
+        <li>
+          <ScrollReveal delay={0.08}>
+            <div class="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+              <div class="bg-umich-blue text-umich-maize mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold">2</div>
+              <h3 class="text-umich-blue font-semibold">AI judges</h3>
+              <p class="mt-2 text-sm text-gray-600">
+                The AI proposes a met/missing judgment for each rubric criterion, with a rationale grounded in the highlighted evidence.
+              </p>
+            </div>
+          </ScrollReveal>
+        </li>
+        <li>
+          <ScrollReveal delay={0.11}>
+            <div class="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+              <div class="bg-umich-blue text-umich-maize mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold">3</div>
+              <h3 class="text-umich-blue font-semibold">AI drafts feedback</h3>
+              <p class="mt-2 text-sm text-gray-600">
+                A feedback message is drafted for each criterion — guiding students toward improvement without revealing the answer.
+              </p>
+            </div>
+          </ScrollReveal>
+        </li>
+        <li>
+          <ScrollReveal delay={0.14}>
+            <div class="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+              <div class="bg-umich-blue text-umich-maize mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold">4</div>
+              <h3 class="text-umich-blue font-semibold">TA decides &amp; sends</h3>
+              <p class="mt-2 text-sm text-gray-600">
+                TAs adopt, edit, or dismiss each suggestion. Feedback boxes are empty by default — nothing reaches students without explicit TA approval.
+              </p>
+            </div>
+          </ScrollReveal>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Features -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 bg-white p-16 lg:max-w-6xl"
+      aria-labelledby="features-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="features-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Key features
+        </h2>
+      </ScrollReveal>
+      <ul class="mt-10 grid gap-6 sm:grid-cols-2" role="list">
+        {
+          features.map((f, i) => (
+            <li>
+              <ScrollReveal delay={0.05 * (i + 1)}>
+                <div class="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                  <h3 class="text-umich-blue font-semibold">{f.title}</h3>
+                  <p class="mt-2 text-sm text-gray-600">{f.desc}</p>
+                </div>
+              </ScrollReveal>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- Three reasons FeedbackWriter works -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 p-16 lg:max-w-6xl"
+      aria-labelledby="reasons-heading"
+    >
+      <ScrollReveal>
+        <div>
+          <h2
+            id="reasons-heading"
+            class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+          >
+            Why FeedbackWriter works
+          </h2>
+          <p class="mt-3 text-gray-600">
+            Three reinforcing factors — grounded in our deployment study and prior HCI research.
+          </p>
+        </div>
+      </ScrollReveal>
+      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        <ScrollReveal delay={0.05}>
+          <div class="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+            <div class="text-umich-maize mb-3 text-2xl font-bold">01</div>
+            <h3 class="text-umich-blue font-semibold">AI complements human expertise</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              TAs are domain experts but under time pressure. AI catches overlooked errors, ensures every rubric item is addressed, and drafts well-crafted hints — freeing TAs to focus their judgment where it matters most.
+            </p>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <div class="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+            <div class="text-umich-maize mb-3 text-2xl font-bold">02</div>
+            <h3 class="text-umich-blue font-semibold">Suggestions and interaction design that fits natural workflow</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              FeedbackWriter aligns with TAs' natural cognitive process for feedback provision, and provide interaction design to facilitate interpreting and correcting AI suggestions. This makes AI suggestions easier to audit, correct, and adopt without added cognitive load.
+            </p>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.15}>
+          <div class="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+            <div class="text-umich-maize mb-3 text-2xl font-bold">03</div>
+            <h3 class="text-umich-blue font-semibold">Iteratively refined rubrics</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Clear, operationalized rubrics externalizes expert criteria, which are foundational to reliable AI judgment. We work with instructors to further clarify criteria — specifying acceptable variants, required depth, and localized terminology.
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-100 p-16 lg:max-w-6xl"
+      aria-labelledby="fw-faq-heading"
+    >
+      <ScrollReveal>
+        <h2
+          id="fw-faq-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl"
+        >
+          Frequently asked questions
+        </h2>
+      </ScrollReveal>
+      <AccordionFAQ items={faq} />
+    </section>
+
+
+    <!-- CTA -->
+    <section
+      class="mx-auto max-w-none p-16 lg:max-w-6xl"
+      aria-labelledby="fw-cta-heading"
+    >
+      <ScrollReveal>
+        <div class="rounded-2xl bg-gradient-to-br from-umich-blue to-[#002d5e] px-8 py-12 text-center shadow-xl">
+          <h2 id="fw-cta-heading" class="text-2xl font-semibold text-white">
+            Work with us
+          </h2>
+          <p class="mx-auto mt-4 max-w-xl text-pretty text-white/80">
+            Interested in deploying FeedbackWriter in your course? Tell us about
+            your teaching context and we'll follow up.
+          </p>
+          <a
+            href={`${BASE_URL}signup/`}
+            class="bg-umich-maize text-umich-blue mt-8 inline-block rounded-lg px-6 py-3 text-sm font-semibold transition hover:brightness-95 focus:outline-none"
+          >
+            Get in touch
+          </a>
+        </div>
+      </ScrollReveal>
+    </section>
+  </main>
+  <Footer />
+</Layout>

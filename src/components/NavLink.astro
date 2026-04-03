@@ -10,8 +10,8 @@ const { href, variant } = Astro.props;
 
 const isMobile = variant === "mobile";
 const className = isMobile
-  ? "hover:bg-umich-maize hover:text-umich-blue block px-4 py-3 text-white transition-colors"
-  : "rounded-md px-3 py-2 text-white transition-colors focus:outline-none focus-visible:bg-white/15 hover:bg-white/15";
+  ? "hover:bg-umich-blue/5 hover:text-umich-blue block px-4 py-3 text-gray-700 font-medium transition-colors"
+  : "rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-umich-blue/5 hover:text-umich-blue focus:outline-none focus-visible:bg-umich-blue/5";
 const isActive = Astro.url.pathname === href;
 ---
 
