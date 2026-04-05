@@ -1,0 +1,31 @@
+---
+const BASE_URL = import.meta.env.BASE_URL;
+---
+
+<div id="announcement-bar" class="bg-umich-maize text-umich-blue w-full px-4 py-3 shadow-md">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-3">
+    <span class="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+      <span aria-hidden="true" class="text-lg leading-none" style="display:inline-block;transform:scaleX(-1)">📢</span>
+      <span class="rounded bg-umich-blue/10 px-2 py-0.5 text-xs font-bold uppercase tracking-wide">Calling Instructors &amp; Researchers!</span>
+      <span class="text-sm font-semibold">Want to bring high-quality AI-mediated feedback to your students?</span>
+    </span>
+    <a
+      href={`${BASE_URL}signup/`}
+      class="rounded-lg bg-umich-blue px-5 py-1.5 text-sm font-bold text-white shadow transition hover:bg-umich-blue/90 shrink-0"
+    >
+      Join us &rarr;
+    </a>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById("announcement-bar");
+  const btn = document.getElementById("dismiss-bar");
+  if (localStorage.getItem("announcement-bar-dismissed")) {
+    bar?.remove();
+  }
+  btn?.addEventListener("click", () => {
+    bar?.remove();
+    localStorage.setItem("announcement-bar-dismissed", "1");
+  });
+</script>

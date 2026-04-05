@@ -1,0 +1,174 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import TeamMemberCard from "~/components/TeamMemberCard.astro";
+import ScrollReveal from "~/components/ScrollReveal.astro";
+import GitHubIcon from "~/assets/icons/github.svg";
+import GoogleScholarIcon from "~/assets/icons/googlescholar.svg";
+import LinkedInIcon from "~/assets/icons/linkedin.svg";
+import MailIcon from "~/assets/icons/mail.svg";
+import XIcon from "~/assets/icons/x.svg";
+
+const faculty = [
+  {
+    name: "Dr. Xu Wang",
+    role: "Assistant Professor",
+    affiliation: "Computer Science and Engineering",
+    organization: "University of Michigan",
+    image: "xwanghci.png",
+    socials: [
+      { href: "mailto:xwanghci@umich.edu", label: "Email", icon: MailIcon },
+      { href: "https://scholar.google.com/citations?user=Fa0scckAAAAJ", label: "Google Scholar", icon: GoogleScholarIcon },
+    ],
+  },
+  {
+    name: "Dr. Mitchell Dudley",
+    role: "Teaching Professor of Economics",
+    affiliation: "College of Literature, Science, and the Arts",
+    organization: "University of Michigan",
+    image: "mrdudley.jpg",
+    socials: [
+      { href: "mailto:mrdudley@umich.edu", label: "Email", icon: MailIcon },
+      { href: "https://www.linkedin.com/in/mitchell-dudley-b45aa721", label: "LinkedIn", icon: LinkedInIcon },
+    ],
+  },
+  {
+    name: "Dr. Larissa Sano",
+    role: "Lecturer IV in Sweetland Writing Center",
+    affiliation: "College of Literature, Science, and the Arts",
+    organization: "University of Michigan",
+    image: "llubomud.jpg",
+    socials: [
+      { href: "mailto:llubomud@umich.edu", label: "Email", icon: MailIcon },
+      { href: "https://www.linkedin.com/in/larissa-sano-13831835/", label: "LinkedIn", icon: LinkedInIcon },
+    ],
+  },
+];
+
+const researchers = [
+  {
+    name: "Xinyi Lu",
+    role: "PhD Student",
+    affiliation: "Computer Science and Engineering",
+    organization: "University of Michigan",
+    image: "lwlxy.jpg",
+    socials: [
+      { href: "mailto:lwlxy@umich.edu", label: "Email", icon: MailIcon },
+      { href: "https://twitter.com/XinyiLu135", label: "X (formerly Twitter)", icon: XIcon },
+      { href: "https://scholar.google.com/citations?user=IjzL7fcAAAAJ", label: "Google Scholar", icon: GoogleScholarIcon },
+      { href: "https://www.linkedin.com/in/xinyi-lu-43043b1a8/", label: "LinkedIn", icon: LinkedInIcon },
+    ],
+  },
+  {
+    name: 'Kexin "Phyllis" Ju',
+    role: "Master Student",
+    affiliation: "Computer Science and Engineering",
+    organization: "University of Michigan",
+    image: "kexinju.jpg",
+    socials: [
+      { href: "mailto:kexinju@umich.edu", label: "Email", icon: MailIcon },
+      { href: "https://x.com/Phylliiiis", label: "X (formerly Twitter)", icon: XIcon },
+      { href: "https://scholar.google.com/citations?hl=en&user=k96A9lEAAAAJ", label: "Google Scholar", icon: GoogleScholarIcon },
+      { href: "https://www.linkedin.com/in/phyllisju", label: "LinkedIn", icon: LinkedInIcon },
+      { href: "https://github.com/PhyllisJu", label: "GitHub", icon: GitHubIcon },
+    ],
+  },
+];
+
+const BASE_URL = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Our People | Mentor AI"
+  description="Meet the interdisciplinary research team behind Mentor AI at the University of Michigan."
+>
+  <Header />
+  <main
+    id="main-content"
+    role="main"
+    class="bg-background flex-1 pb-24 md:pb-40"
+  >
+    <section class="mx-auto max-w-none px-6 pt-16 pb-8 md:px-8 lg:max-w-6xl">
+      <ScrollReveal>
+        <a
+          href={`${BASE_URL}about/`}
+          class="inline-flex items-center gap-1 text-sm text-gray-500 transition hover:text-umich-blue"
+        >
+          ← Our Mission
+        </a>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.06}>
+        <h1 class="text-umich-blue mt-6 text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+          Our People
+        </h1>
+        <p class="mt-4 max-w-2xl text-gray-600">
+          An interdisciplinary team from Computer Science, Economics, and Writing
+          working together to scale high-quality feedback.
+        </p>
+      </ScrollReveal>
+    </section>
+
+    <!-- Faculty -->
+    <section class="mx-auto max-w-none px-6 py-10 md:px-8 lg:max-w-6xl">
+      <ScrollReveal>
+        <h2 class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl">
+          Faculty
+        </h2>
+      </ScrollReveal>
+      <ScrollReveal delay={0.08}>
+        <ul
+          role="list"
+          class="mt-8 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {faculty.map((member) => (
+            <li>
+              <TeamMemberCard {...member} />
+            </li>
+          ))}
+        </ul>
+      </ScrollReveal>
+    </section>
+
+    <!-- Research Team -->
+    <section class="mx-auto max-w-none border-t border-gray-100 px-6 py-10 md:px-8 lg:max-w-6xl">
+      <ScrollReveal>
+        <h2 class="text-umich-blue text-2xl font-semibold tracking-tight sm:text-3xl">
+          Research Team
+        </h2>
+      </ScrollReveal>
+      <ScrollReveal delay={0.08}>
+        <ul
+          role="list"
+          class="mt-8 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {researchers.map((member) => (
+            <li>
+              <TeamMemberCard {...member} />
+            </li>
+          ))}
+        </ul>
+      </ScrollReveal>
+    </section>
+
+    <!-- Join CTA -->
+    <section class="mx-auto max-w-none border-t border-gray-100 px-6 py-16 md:px-8 lg:max-w-6xl">
+      <ScrollReveal>
+        <div class="rounded-2xl bg-gradient-to-br from-umich-blue to-[#002d5e] px-8 py-12 text-center shadow-xl">
+          <h2 class="text-2xl font-semibold text-white">Join the team</h2>
+          <p class="mx-auto mt-4 max-w-xl text-pretty text-white/80">
+            Interested in contributing to our research? Tell us about yourself.
+          </p>
+          <a
+            href={`${BASE_URL}signup/`}
+            class="bg-umich-maize text-umich-blue mt-8 inline-block rounded-lg px-6 py-3 text-sm font-semibold transition hover:brightness-95 focus:outline-none"
+          >
+            Get in touch
+          </a>
+        </div>
+      </ScrollReveal>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -7,6 +7,8 @@ import ScrollReveal from "~/components/ScrollReveal.astro";
 const JOIN_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSfBiu26vT-uLbt3PHeUjQ_20ui6VYkxgPt1mT5VSVRiQ4g3ZA/viewform";
 const JOIN_FORM_EMBED_URL = `${JOIN_FORM_URL}?embedded=true`;
+
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <Layout
@@ -19,30 +21,31 @@ const JOIN_FORM_EMBED_URL = `${JOIN_FORM_URL}?embedded=true`;
     role="main"
     class="bg-background flex-1 pt-12 pb-24 md:pt-20 md:pb-40"
   >
+    <!-- Hero -->
     <section
-      class="mx-auto max-w-none px-16 pb-16 lg:max-w-6xl"
+      class="mx-auto max-w-none px-8 pb-16 lg:max-w-6xl"
       aria-labelledby="join-hero-heading"
     >
-      <div class="mx-auto max-w-3xl text-center">
+      <div class="mx-auto max-w-5xl text-center">
         <ScrollReveal>
           <h1
             id="join-hero-heading"
             class="text-umich-blue text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
           >
-            Join us in scaling high-quality feedback for student writing
+            Bring evidence-backed AI feedback to your course, or collaborate to advance it
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={0.08}>
           <p class="mt-6 text-lg text-pretty text-gray-700 sm:text-xl">
-            We work with instructors and instructional leaders to bring
-            rubric-grounded, human-reviewed AI feedback into real classrooms,
-            and to study what works.
+            Our randomized trial (N&nbsp;=&nbsp;354) showed that AI-mediated feedback authored with FeedbackWriter led to significantly higher-quality student writings. We're looking for instructors to bring the rubric-grounded, AI-mediated feedback into more classrooms, and researchers to collaborate.
           </p>
         </ScrollReveal>
       </div>
     </section>
+
+    <!-- Audience cards -->
     <section
-      class="mx-auto max-w-none border-t border-gray-200/80 p-16 lg:max-w-6xl"
+      class="mx-auto max-w-none border-t border-gray-200/80 px-8 py-16 lg:max-w-6xl"
       aria-labelledby="who-heading"
     >
       <ScrollReveal>
@@ -53,77 +56,159 @@ const JOIN_FORM_EMBED_URL = `${JOIN_FORM_URL}?embedded=true`;
           Who this is for
         </h2>
       </ScrollReveal>
-      <ul class="mt-8 grid gap-6 sm:grid-cols-2" role="list">
+      <ul class="mt-8 grid gap-6 lg:grid-cols-2" role="list">
+        <!-- Instructor card -->
         <li>
           <ScrollReveal delay={0.06}>
-            <div class="h-full rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-              <h3 class="text-umich-blue text-lg font-semibold">I'm an instructor</h3>
-              <p class="mt-3 text-pretty text-gray-700">
-                You teach a course with open-ended writing assignments
-                and want rubric-aligned, scalable, high-quality feedback. 
+            <div class="h-full rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+              <div class="flex items-center gap-2">
+                <span class="bg-umich-blue/10 text-umich-blue rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wide">Instructor / Department Leader</span>
+              </div>
+              <h3 class="text-umich-blue mt-4 text-xl font-semibold">Deploy FeedbackWriter in your course</h3>
+              <p class="mt-3 text-gray-600">
+                Are you teaching a course with writing assignments and want to give students higher-quality feedback?
               </p>
-              <ul class="mt-4 space-y-1.5 text-sm text-gray-700">
-                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Access the Instructor Dashboard for grade and rubric insights</li>
-                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Deploy FeedbackWriter for your TAs</li>
-                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Optionally enable DraftMentors for students</li>
+
+              <h4 class="mt-5 text-sm font-semibold text-gray-800">What you get</h4>
+              <ul class="mt-2 space-y-2 text-sm text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span>
+                  <span><strong class="font-semibold">High-quality feedback for your students</strong> — TAs using FeedbackWriter showed significantly lower inter-rater variance and higher-quality feedback in our trial, which lead to significantly higher quality revised writings.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span>
+                  <span><strong class="font-semibold">An deployed effective tool with RCT evidence</strong> — FeedbackWriter has been evaluated in a published RCT; you're not beta-testing an experiment.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span>
+                  <span><strong class="font-semibold">Human in the loop, always</strong> — TAs can adopt, edit, or dismiss every AI suggestion before it reaches a student. Nothing is automated.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span>
+                  <span><strong class="font-semibold">System setup</strong> — the system can be connected to existing Learning Management Platforms such as Canvas. We configure the system for your assignment for you and you run your course as usual.</span>
+                </li>
               </ul>
+
+              <div class="mt-6 rounded-lg border border-umich-blue/15 bg-umich-blue/5 px-4 py-3 text-sm text-umich-blue">
+                Deployed and studied in a large introductory economics course at the University of Michigan — 354 students, 11 TAs, 1,366 essays graded.
+              </div>
             </div>
           </ScrollReveal>
         </li>
+
+        <!-- Researcher card -->
         <li>
           <ScrollReveal delay={0.1}>
-            <div class="h-full rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-              <h3 class="text-umich-blue text-lg font-semibold">I'm a researcher or department leader</h3>
-              <p class="mt-3 text-pretty text-gray-700">
-                You're interested in empirical work on human-AI feedback
-                workflows, or exploring responsible AI support for grading at
-                scale in your department or program.
+            <div class="h-full rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+              <div class="flex items-center gap-2">
+                <span class="bg-umich-maize/20 text-umich-blue rounded-full px-3 py-0.5 text-xs font-bold uppercase tracking-wide">Researcher / Collaborator</span>
+              </div>
+              <h3 class="text-umich-blue mt-4 text-xl font-semibold">Collaborate to scale high-quality feedback</h3>
+              <p class="mt-3 text-gray-600">
+                Interested in studying how we can enable scalable and high-quality feedback, with evidence from real classrooms?
               </p>
-              <ul class="mt-4 space-y-1.5 text-sm text-gray-700">
-                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Discuss joint research or pilot studies</li>
-                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Explore department-wide deployments</li>
-                <li class="flex items-start gap-2"><span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span> Access published methods and data context</li>
+
+              <h4 class="mt-5 text-sm font-semibold text-gray-800">What you get</h4>
+              <ul class="mt-2 space-y-2 text-sm text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span>
+                  <span><strong class="font-semibold">Access to a working deployed system</strong> — FeedbackWriter is live, not a prototype. Published methods from CHI '26 and AIED '25 provide a reproducible starting point.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span>
+                  <span><strong class="font-semibold">Collaborate on scaling high-quality feedback</strong> — we actively seek collaborators to explore open questions and extend findings to new disciplines or feedback modalities.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-umich-maize mt-0.5 shrink-0 font-bold">✓</span>
+                  <span><strong class="font-semibold">An active research community</strong> — connect with an interdisciplinary team spanning CS, economics, and writing pedagogy who are building the evidence base together.</span>
+                </li>
               </ul>
+
+              <div class="mt-6 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
+                Grounded in two peer-reviewed publications: <a href="https://arxiv.org/pdf/2602.16820v2" class="text-umich-blue font-medium hover:underline" target="_blank" rel="noopener noreferrer">CHI '26 RCT</a> and <a href="https://arxiv.org/pdf/2505.15596v1" class="text-umich-blue font-medium hover:underline" target="_blank" rel="noopener noreferrer">AIED '25 qualitative study</a>.
+              </div>
             </div>
           </ScrollReveal>
         </li>
       </ul>
-<!--
-      <div class="mt-10 mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
-        <div>
-          <ScrollReveal delay={0.14}>
-            <h2 class="text-umich-blue text-xl font-semibold tracking-tight">
-              What you can expect
-            </h2>
-            <ul class="mt-4 list-disc space-y-3 pl-5 text-pretty text-gray-700">
-              <li>
-                Conversations grounded in our published trials and design
-                experience, not a sales pitch.
-              </li>
-              <li>
-                Where there is a fit, possible pilots or collaborations shaped
-                around your course goals and constraints.
-              </li>
-              <li>
-                Clear boundaries: we do not promise outcomes beyond what the
-                research supports.
-              </li>
-            </ul>
-          </ScrollReveal>
-        </div>
-      </div>
-  -->
     </section>
+
+
+    <!-- What to expect -->
+<!--
     <section
-      class="mx-auto max-w-none border-t border-gray-200/80 bg-white/50 p-16 lg:max-w-6xl"
-      aria-labelledby="form-heading"
+      class="mx-auto max-w-none border-t border-gray-200/80 bg-gray-50 px-8 py-16 lg:max-w-6xl"
+      aria-labelledby="process-heading"
     >
       <ScrollReveal>
+        <h2
+          id="process-heading"
+          class="text-umich-blue text-2xl font-semibold tracking-tight"
+        >
+          What to expect
+        </h2>
+        <p class="mt-2 text-gray-500">A straightforward process, grounded in fit.</p>
+      </ScrollReveal>
+      <ol class="mt-8 grid gap-5 sm:grid-cols-3" role="list">
+        <ScrollReveal delay={0.05}>
+          <li class="flex gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <span class="bg-umich-blue text-umich-maize mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold">1</span>
+            <div>
+              <h3 class="text-umich-blue font-semibold">Tell us about your course</h3>
+              <p class="mt-1 text-sm text-gray-600">Fill out the form below (about 2 minutes). Describe your assignment type, course size, and what you're hoping to improve.</p>
+            </div>
+          </li>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <li class="flex gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <span class="bg-umich-blue text-umich-maize mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold">2</span>
+            <div>
+              <h3 class="text-umich-blue font-semibold">We follow up</h3>
+              <p class="mt-1 text-sm text-gray-600">Within a few business days we'll reach out to schedule a conversation and see whether there's a good fit for your context and ours.</p>
+            </div>
+          </li>
+        </ScrollReveal>
+        <ScrollReveal delay={0.15}>
+          <li class="flex gap-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <span class="bg-umich-blue text-umich-maize mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold">3</span>
+            <div>
+              <h3 class="text-umich-blue font-semibold">We set up together</h3>
+              <p class="mt-1 text-sm text-gray-600">If there's a match, we handle rubric configuration and TA onboarding. You run your course as usual — we support you through the first deployment.</p>
+            </div>
+          </li>
+        </ScrollReveal>
+      </ol>
+    </section>
+-->
+    <!-- Form -->
+    <section
+      class="mx-auto max-w-none border-t border-gray-200/80 bg-white/50 px-8 py-16 lg:max-w-6xl"
+      aria-labelledby="form-heading"
+    >
+      <!-- Trust strip -->
+      <ScrollReveal>
+        <div class="mb-10 flex flex-wrap justify-center gap-4 text-sm">
+          <span class="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-4 py-1.5 text-gray-600 shadow-sm">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1L8.8 5.2L13.5 5.7L10 9L10.9 13.5L7 11.2L3.1 13.5L4 9L0.5 5.7L5.2 5.2L7 1Z" fill="#00274c"/></svg>
+            Peer-reviewed at CHI '26
+          </span>
+          <span class="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-4 py-1.5 text-gray-600 shadow-sm">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="3" width="12" height="9" rx="1.5" stroke="#00274c" stroke-width="1.4"/><path d="M4 3V2.5C4 1.67 4.67 1 5.5 1H8.5C9.33 1 10 1.67 10 2.5V3" stroke="#00274c" stroke-width="1.4"/></svg>
+            University of Michigan research team
+          </span>
+          <span class="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-4 py-1.5 text-gray-600 shadow-sm">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="#00274c" stroke-width="1.4"/><path d="M5 7L6.5 8.5L9.5 5.5" stroke="#00274c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Human-in-the-loop — TAs always have full control
+          </span>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.05}>
         <h2
           id="form-heading"
           class="text-umich-blue text-2xl font-semibold tracking-tight"
         >
-          Apply or express interest
+          Tell us about your course or research interest
         </h2>
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
@@ -149,29 +234,9 @@ const JOIN_FORM_EMBED_URL = `${JOIN_FORM_URL}?embedded=true`;
           </p>
         </div>
       </ScrollReveal>
-<!--
       <ScrollReveal delay={0.14}>
-        <h3 class="text-umich-blue mt-12 text-lg font-semibold">
-          What happens next
-        </h3>
-        <ol
-          class="mt-4 max-w-2xl list-decimal space-y-2 pl-5 text-pretty text-gray-700"
-        >
-          <li>We review submissions as capacity allows.</li>
-          <li>
-            If there is a match, we follow up by email with next steps or
-            questions.
-          </li>
-          <li>
-            We typically reply within a few business days when we can engage;
-            silence may mean we are at capacity. Feel free to try again later.
-          </li>
-        </ol>
-      </ScrollReveal>
-  -->
-      <ScrollReveal delay={0.14}>
-        <p class="mt-8 text-sm text-gray-700">
-          General questions? Contact us via email or phone.
+        <p class="mt-6 text-sm text-gray-500">
+          Not sure if there's a fit? Fill out the form anyway — we'll let you know.
         </p>
       </ScrollReveal>
     </section>

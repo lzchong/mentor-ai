@@ -53,8 +53,38 @@ const getAriaCurrent = (href: string) =>
 
     <!-- Desktop navigation -->
     <ul class="hidden items-center gap-1 md:flex" role="list">
-      <li>
-        <NavLink href={`${BASE_URL}about/`} variant="desktop">About</NavLink>
+      <!-- About dropdown -->
+      <li class="relative" id="about-nav-item">
+        <button
+          type="button"
+          id="about-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="about-dropdown"
+          class="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-umich-blue/5 hover:text-umich-blue focus:outline-none focus-visible:bg-umich-blue/5"
+        >
+          About
+          <svg class="h-3.5 w-3.5 transition-transform duration-200" id="about-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div
+          id="about-dropdown"
+          role="menu"
+          aria-labelledby="about-trigger"
+          class="invisible absolute left-1/2 top-full z-50 mt-2 w-52 -translate-x-1/2 rounded-xl border border-gray-100 bg-white opacity-0 shadow-lg transition-all duration-150"
+        >
+          <div class="p-1.5">
+            <a href={`${BASE_URL}about/`} role="menuitem" class="block rounded-lg px-4 py-3 transition hover:bg-gray-50">
+              <p class="text-sm font-semibold text-umich-blue">Our Mission</p>
+              <p class="mt-0.5 text-xs text-gray-500">Vision, goals, and impact</p>
+            </a>
+            <a href={`${BASE_URL}about/people/`} role="menuitem" class="block rounded-lg px-4 py-3 transition hover:bg-gray-50">
+              <p class="text-sm font-semibold text-umich-blue">Our People</p>
+              <p class="mt-0.5 text-xs text-gray-500">Faculty and research team</p>
+            </a>
+          </div>
+        </div>
       </li>
       <!-- Solution dropdown -->
       <li class="relative" id="solution-nav-item">
@@ -151,8 +181,32 @@ const getAriaCurrent = (href: string) =>
     aria-labelledby="mobile-menu-button"
   >
     <ul class="flex flex-col py-2" role="list">
+      <!-- About mobile sub-menu -->
       <li>
-        <NavLink href={`${BASE_URL}about/`} variant="mobile">About</NavLink>
+        <button
+          type="button"
+          id="mobile-about-trigger"
+          aria-expanded="false"
+          aria-controls="mobile-about-menu"
+          class="flex w-full items-center justify-between px-4 py-3 text-gray-700 font-medium transition-colors hover:bg-umich-blue/5 hover:text-umich-blue"
+        >
+          About
+          <svg class="h-4 w-4 transition-transform duration-200" id="mobile-about-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <ul id="mobile-about-menu" class="hidden flex-col bg-gray-50" role="list">
+          <li>
+            <a href={`${BASE_URL}about/`} class="block px-8 py-2.5 text-sm text-gray-600 transition hover:text-umich-blue">
+              Our Mission
+            </a>
+          </li>
+          <li>
+            <a href={`${BASE_URL}about/people/`} class="block px-8 py-2.5 text-sm text-gray-600 transition hover:text-umich-blue">
+              Our People
+            </a>
+          </li>
+        </ul>
       </li>
       <!-- Solution mobile sub-menu -->
       <li>
@@ -207,6 +261,55 @@ const getAriaCurrent = (href: string) =>
 </header>
 
 <script>
+  // Desktop About dropdown
+  const aboutTrigger = document.getElementById("about-trigger") as HTMLButtonElement | null;
+  const aboutDropdown = document.getElementById("about-dropdown");
+  const aboutChevron = document.getElementById("about-chevron");
+
+  function openAbout() {
+    if (!aboutDropdown || !aboutTrigger || !aboutChevron) return;
+    aboutTrigger.setAttribute("aria-expanded", "true");
+    aboutDropdown.classList.remove("invisible", "opacity-0");
+    aboutChevron.style.transform = "rotate(180deg)";
+  }
+  function closeAbout() {
+    if (!aboutDropdown || !aboutTrigger || !aboutChevron) return;
+    aboutTrigger.setAttribute("aria-expanded", "false");
+    aboutDropdown.classList.add("invisible", "opacity-0");
+    aboutChevron.style.transform = "";
+  }
+
+  const aboutNavItem = document.getElementById("about-nav-item");
+  if (aboutNavItem) {
+    aboutNavItem.addEventListener("mouseenter", openAbout);
+    aboutNavItem.addEventListener("mouseleave", closeAbout);
+  }
+  if (aboutTrigger) {
+    aboutTrigger.addEventListener("click", () => {
+      aboutTrigger.getAttribute("aria-expanded") === "true" ? closeAbout() : openAbout();
+    });
+    aboutTrigger.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") { closeAbout(); aboutTrigger.focus(); }
+    });
+  }
+
+  // Mobile About sub-menu
+  const mobileAboutTrigger = document.getElementById("mobile-about-trigger") as HTMLButtonElement | null;
+  const mobileAboutMenu = document.getElementById("mobile-about-menu");
+  const mobileAboutChevron = document.getElementById("mobile-about-chevron");
+
+  if (mobileAboutTrigger && mobileAboutMenu) {
+    mobileAboutTrigger.addEventListener("click", () => {
+      const isExpanded = mobileAboutTrigger.getAttribute("aria-expanded") === "true";
+      mobileAboutTrigger.setAttribute("aria-expanded", String(!isExpanded));
+      mobileAboutMenu.classList.toggle("hidden");
+      mobileAboutMenu.classList.toggle("flex");
+      if (mobileAboutChevron) {
+        mobileAboutChevron.style.transform = isExpanded ? "" : "rotate(180deg)";
+      }
+    });
+  }
+
   // Desktop Solution dropdown
   const solutionTrigger = document.getElementById("solution-trigger") as HTMLButtonElement | null;
   const solutionDropdown = document.getElementById("solution-dropdown");
@@ -245,6 +348,9 @@ const getAriaCurrent = (href: string) =>
   document.addEventListener("click", (e) => {
     if (solutionNavItem && !solutionNavItem.contains(e.target as Node)) {
       closeDropdown();
+    }
+    if (aboutNavItem && !aboutNavItem.contains(e.target as Node)) {
+      closeAbout();
     }
   });
 
